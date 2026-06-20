@@ -29,6 +29,7 @@ padding:12px;
 margin:8px 0;
 border-radius:8px;
 border:1px solid #ccc;
+box-sizing:border-box;
 }
 
 button{
@@ -39,10 +40,13 @@ border-radius:10px;
 background:#00a86b;
 color:white;
 font-size:16px;
+margin-top:10px;
 }
 
 .back{
 background:#555;
+width:auto;
+padding:8px 15px;
 }
 
 .hidden{
@@ -68,12 +72,13 @@ display:none;
 
 <input placeholder="First Name (as per Government ID)">
 
+
 <input placeholder="Last Name (as per Government ID)">
 
 
-<input value="+92" readonly>
-
-<input placeholder="Number without 0">
+<input 
+type="tel"
+placeholder="+92 3XXXXXXXXX">
 
 
 <input placeholder="Email Address">
@@ -82,37 +87,88 @@ display:none;
 <input placeholder="CNIC Number without spaces">
 
 
+
 <select>
+
 <option>Select Gender</option>
 <option>Male</option>
 <option>Female</option>
+
 </select>
 
 
 
-<input list="cities" placeholder="Search City">
 
-<datalist id="cities">
+<select>
 
-<option value="Lahore">
-<option value="Karachi">
-<option value="Islamabad">
-<option value="Rawalpindi">
-<option value="Faisalabad">
-<option value="Multan">
-<option value="Peshawar">
-<option value="Quetta">
-<option value="Sialkot">
-<option value="Gujranwala">
+<option>Select City</option>
 
-</datalist>
+<option>Lahore</option>
+<option>Karachi</option>
+<option>Islamabad</option>
+<option>Rawalpindi</option>
+<option>Faisalabad</option>
+<option>Multan</option>
+<option>Gujranwala</option>
+<option>Sialkot</option>
+<option>Gujrat</option>
+<option>Sheikhupura</option>
+<option>Narowal</option>
+<option>Shakargarh</option>
+<option>Zafarwal</option>
+<option>Kasur</option>
+<option>Okara</option>
+<option>Sahiwal</option>
+<option>Sargodha</option>
+<option>Jhelum</option>
+<option>Chakwal</option>
+<option>Attock</option>
+<option>Mianwali</option>
+<option>Khushab</option>
+<option>Bahawalpur</option>
+<option>Rahim Yar Khan</option>
+<option>Dera Ghazi Khan</option>
+<option>Muzaffargarh</option>
+<option>Chiniot</option>
+<option>Jhang</option>
+<option>Toba Tek Singh</option>
+
+<option>Peshawar</option>
+<option>Mardan</option>
+<option>Abbottabad</option>
+<option>Swat</option>
+<option>Nowshera</option>
+<option>Kohat</option>
+<option>Bannu</option>
+<option>Charsadda</option>
+
+<option>Quetta</option>
+<option>Gwadar</option>
+<option>Turbat</option>
+<option>Khuzdar</option>
+<option>Ziarat</option>
+
+<option>Hyderabad</option>
+<option>Sukkur</option>
+<option>Larkana</option>
+<option>Nawabshah</option>
+<option>Mirpurkhas</option>
+
+<option>Muzaffarabad</option>
+<option>Mirpur</option>
+<option>Rawalakot</option>
+
+</select>
+
 
 
 
 <select id="license" onchange="checkLicense()">
 
 <option>License Holder?</option>
+
 <option value="yes">Yes</option>
+
 <option value="no">No</option>
 
 </select>
@@ -121,41 +177,56 @@ display:none;
 
 <div id="licenseBox" class="hidden">
 
+
 <input placeholder="License Number">
 
+
 </div>
+
 
 
 
 <button onclick="location.href='vehicle-choice.html'">
+
 Next →
+
 </button>
+
+
 
 
 </div>
 
 
+
+
 <script>
+
 
 function checkLicense(){
 
-let x=document.getElementById("license").value;
+let value=document.getElementById("license").value;
 
 let box=document.getElementById("licenseBox");
 
 
-if(x=="yes"){
+if(value=="yes"){
+
 box.style.display="block";
+
 }
 
 else{
+
 box.style.display="none";
+
 }
 
 }
 
 
 </script>
+
 
 
 </body>
