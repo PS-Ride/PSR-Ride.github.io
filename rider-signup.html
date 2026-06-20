@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Rider Signup - PS Ride</title>
 
 <style>
+
 body{
 font-family:Arial;
 background:#f4f4f4;
@@ -21,12 +23,29 @@ border-radius:15px;
 box-shadow:0 5px 15px #ccc;
 }
 
-input, select{
+h1{
+text-align:center;
+}
+
+input,select{
 width:100%;
 padding:12px;
 margin:8px 0;
 border-radius:8px;
 border:1px solid #ccc;
+}
+
+.phone{
+display:flex;
+gap:10px;
+}
+
+.code{
+width:30%;
+}
+
+.number{
+width:70%;
 }
 
 button{
@@ -39,39 +58,96 @@ border-radius:8px;
 font-size:16px;
 }
 
-h1{
-text-align:center;
-}
-
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="card">
+
 
 <h1>Rider Signup 🚗</h1>
 
-<input placeholder="Full Name">
 
-<input placeholder="Phone Number">
+<input placeholder="First Name (as per Government ID)">
 
-<input placeholder="Email">
 
-<input placeholder="CNIC Number">
+<input placeholder="Last Name (as per Government ID)">
+
+
+
+<div class="phone">
+
+<input class="code" value="+92" readonly>
+
+<input class="number" placeholder="Phone number without 0">
+
+</div>
+
+
+
+<input placeholder="Email Address">
+
+
+
+<input placeholder="CNIC Number without spaces">
+
 
 
 <select>
+
 <option>Select Gender</option>
 <option>Male</option>
 <option>Female</option>
+
 </select>
 
 
-<input placeholder="City">
 
-<input type="password" placeholder="Password">
+
+<select>
+
+<option>Select City</option>
+
+<option>Lahore</option>
+<option>Karachi</option>
+<option>Islamabad</option>
+<option>Rawalpindi</option>
+<option>Faisalabad</option>
+<option>Multan</option>
+<option>Peshawar</option>
+<option>Quetta</option>
+<option>Gujranwala</option>
+<option>Sialkot</option>
+<option>Bahawalpur</option>
+<option>Hyderabad</option>
+<option>Abbottabad</option>
+<option>Murree</option>
+<option>Gujrat</option>
+<option>Sargodha</option>
+<option>Sheikhupura</option>
+<option>Jhelum</option>
+<option>Kasur</option>
+<option>Okara</option>
+<option>Sahiwal</option>
+<option>Mardan</option>
+<option>Nawabshah</option>
+<option>Sukkur</option>
+<option>Larkana</option>
+<option>Other</option>
+
+</select>
+
+
+
+
+<input type="password" placeholder="Create Password">
+
+
+<input type="password" placeholder="Confirm Password">
 
 
 <button>
@@ -81,5 +157,6 @@ Create Rider Account
 
 </div>
 
+
 </body>
-  </html>
+</html>
