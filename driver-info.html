@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Driver Info - PS Ride</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+
+.card{
+background:white;
+max-width:500px;
+margin:auto;
+padding:20px;
+border-radius:15px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#00a86b;
+color:white;
+font-size:16px;
+}
+
+.back{
+background:#555;
+}
+
+.hidden{
+display:none;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<button class="back" onclick="history.back()">← Back</button>
+
+
+<h2>Driver Signup 🚘</h2>
+
+
+<input placeholder="First Name (as per Government ID)">
+
+<input placeholder="Last Name (as per Government ID)">
+
+
+<input value="+92" readonly>
+
+<input placeholder="Number without 0">
+
+
+<input placeholder="Email Address">
+
+
+<input placeholder="CNIC Number without spaces">
+
+
+<select>
+<option>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+
+
+
+<input list="cities" placeholder="Search City">
+
+<datalist id="cities">
+
+<option value="Lahore">
+<option value="Karachi">
+<option value="Islamabad">
+<option value="Rawalpindi">
+<option value="Faisalabad">
+<option value="Multan">
+<option value="Peshawar">
+<option value="Quetta">
+<option value="Sialkot">
+<option value="Gujranwala">
+
+</datalist>
+
+
+
+<select id="license" onchange="checkLicense()">
+
+<option>License Holder?</option>
+<option value="yes">Yes</option>
+<option value="no">No</option>
+
+</select>
+
+
+
+<div id="licenseBox" class="hidden">
+
+<input placeholder="License Number">
+
+</div>
+
+
+
+<button onclick="location.href='vehicle-choice.html'">
+Next →
+</button>
+
+
+</div>
+
+
+<script>
+
+function checkLicense(){
+
+let x=document.getElementById("license").value;
+
+let box=document.getElementById("licenseBox");
+
+
+if(x=="yes"){
+box.style.display="block";
+}
+
+else{
+box.style.display="none";
+}
+
+}
+
+
+</script>
+
+
+</body>
+
+  </html>
