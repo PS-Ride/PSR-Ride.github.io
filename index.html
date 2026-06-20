@@ -3,76 +3,46 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PS Ride - Ride Booking</title>
+<title>PS Ride</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
 body{
     margin:0;
-    background:#f5f5f5;
+    font-family:Arial;
+    background:#f4f4f4;
 }
 
 .header{
     background:#111;
     color:white;
-    padding:20px;
+    padding:30px;
     text-align:center;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:bold;
-}
-
 .container{
+    padding:25px;
     max-width:500px;
-    margin:30px auto;
-    padding:20px;
+    margin:auto;
 }
 
 .card{
     background:white;
     padding:25px;
     border-radius:15px;
+    margin-top:20px;
     box-shadow:0 5px 15px #ccc;
-}
-
-h2{
     text-align:center;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #ddd;
 }
 
 button{
     width:100%;
-    padding:14px;
-    margin-top:10px;
+    padding:15px;
+    margin:10px 0;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
+    font-size:18px;
     background:#00a86b;
     color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.8;
-}
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-    color:#777;
 }
 
 </style>
@@ -82,47 +52,34 @@ button:hover{
 <body>
 
 <div class="header">
-<div class="logo">PS Ride 🚗</div>
+<h1>PS Ride 🚗</h1>
 <p>Fast & Easy Ride Booking</p>
 </div>
 
 
 <div class="container">
 
+
 <div class="card">
 
-<h2>Book Your Ride</h2>
-
-<input type="text" placeholder="Pickup Location">
-
-<input type="text" placeholder="Drop Location">
+<h2>Continue As</h2>
 
 
-<button>
-Request Ride
+<button onclick="alert('Rider Signup Coming Soon')">
+🚗 Rider (Book a Ride)
 </button>
 
 
-<button>
-Driver Signup
-</button>
-
-
-<button>
-Rider Login
+<button onclick="alert('Driver Signup Coming Soon')">
+🚘 Driver (Earn Money)
 </button>
 
 
 </div>
 
 
-<div class="footer">
-<p>PS Ride © 2026</p>
-<p>Ride Booking Platform Under Development</p>
 </div>
 
-
-</div>
 
 </body>
 </html>
