@@ -67,9 +67,10 @@ padding:8px 15px;
 
 
 
-<select>
+<select id="type" onchange="updateCompany()">
 
 <option>Select Vehicle Type</option>
+
 <option>Electric Bike</option>
 <option>Electric Rickshaw</option>
 <option>Electric Car</option>
@@ -78,34 +79,25 @@ padding:8px 15px;
 
 
 
-<select>
+
+<select id="company" onchange="updateModel()">
 
 <option>Select Company</option>
-<option>BYD</option>
-<option>MG</option>
-<option>Ghani Electric</option>
-<option>Metro</option>
-<option>Other</option>
 
 </select>
 
 
 
-<select>
+
+<select id="model">
 
 <option>Select Model</option>
 
-<option>Yadea</option>
-<option>Metro T9</option>
-<option>BYD Atto 3</option>
-<option>MG ZS EV</option>
-<option>Other</option>
-
 </select>
 
 
 
-<input placeholder="Enter Custom Model (Optional)">
+<input placeholder="Custom Model (Optional)">
 
 
 
@@ -125,6 +117,7 @@ padding:8px 15px;
 
 
 
+
 <input placeholder="Registration Number">
 
 
@@ -141,6 +134,146 @@ Next →
 
 
 </div>
+
+
+
+
+<script>
+
+
+function updateCompany(){
+
+let type=document.getElementById("type").value;
+
+let company=document.getElementById("company");
+
+
+company.innerHTML="<option>Select Company</option>";
+
+
+
+if(type=="Electric Bike"){
+
+company.innerHTML += `
+<option>Yadea</option>
+<option>Metro</option>
+<option>United</option>
+<option>Other</option>
+`;
+
+}
+
+
+if(type=="Electric Rickshaw"){
+
+company.innerHTML += `
+<option>Metro</option>
+<option>Qingqi</option>
+<option>Other</option>
+`;
+
+}
+
+
+if(type=="Electric Car"){
+
+company.innerHTML += `
+<option>BYD</option>
+<option>MG</option>
+<option>Other</option>
+`;
+
+}
+
+
+}
+
+
+
+function updateModel(){
+
+let type=document.getElementById("type").value;
+
+let company=document.getElementById("company").value;
+
+let model=document.getElementById("model");
+
+
+model.innerHTML="<option>Select Model</option>";
+
+
+
+if(type=="Electric Bike" && company=="Yadea"){
+
+model.innerHTML += `
+<option>G5</option>
+<option>T5</option>
+`;
+
+}
+
+
+
+if(type=="Electric Bike" && company=="Metro"){
+
+model.innerHTML += `
+<option>T9</option>
+<option>M6</option>
+`;
+
+}
+
+
+
+if(type=="Electric Bike" && company=="United"){
+
+model.innerHTML += `
+<option>US 100</option>
+<option>US 200</option>
+`;
+
+}
+
+
+
+if(type=="Electric Car" && company=="BYD"){
+
+model.innerHTML += `
+<option>Atto 3</option>
+<option>Dolphin</option>
+`;
+
+}
+
+
+
+if(type=="Electric Car" && company=="MG"){
+
+model.innerHTML += `
+<option>ZS EV</option>
+`;
+
+}
+
+
+
+if(type=="Electric Rickshaw"){
+
+model.innerHTML += `
+<option>Electric Rickshaw Model</option>
+`;
+
+}
+
+
+
+model.innerHTML += "<option>Custom</option>";
+
+}
+
+
+</script>
+
 
 
 </body>
