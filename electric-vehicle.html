@@ -29,6 +29,7 @@ padding:12px;
 margin:8px 0;
 border-radius:8px;
 border:1px solid #ccc;
+box-sizing:border-box;
 }
 
 button{
@@ -65,12 +66,13 @@ padding:8px 15px;
 <h2>Electric Vehicle Details ⚡</h2>
 
 
+
 <select>
 
 <option>Select Vehicle Type</option>
 <option>Electric Bike</option>
-<option>Electric Car</option>
 <option>Electric Rickshaw</option>
+<option>Electric Car</option>
 
 </select>
 
@@ -81,39 +83,36 @@ padding:8px 15px;
 <option>Select Company</option>
 <option>BYD</option>
 <option>MG</option>
+<option>Ghani Electric</option>
+<option>Metro</option>
 <option>Other</option>
 
 </select>
 
 
 
-<input placeholder="Vehicle Model">
+<select>
+
+<option>Select Model</option>
+
+<option>Yadea</option>
+<option>Metro T9</option>
+<option>BYD Atto 3</option>
+<option>MG ZS EV</option>
+<option>Other</option>
+
+</select>
+
+
+
+<input placeholder="Enter Custom Model (Optional)">
+
 
 
 <select>
 
 <option>Select Model Year</option>
 
-<option>2000</option>
-<option>2001</option>
-<option>2002</option>
-<option>2003</option>
-<option>2004</option>
-<option>2005</option>
-<option>2006</option>
-<option>2007</option>
-<option>2008</option>
-<option>2009</option>
-<option>2010</option>
-<option>2011</option>
-<option>2012</option>
-<option>2013</option>
-<option>2014</option>
-<option>2015</option>
-<option>2016</option>
-<option>2017</option>
-<option>2018</option>
-<option>2019</option>
 <option>2020</option>
 <option>2021</option>
 <option>2022</option>
@@ -129,11 +128,14 @@ padding:8px 15px;
 <input placeholder="Registration Number">
 
 
-<input placeholder="Battery Capacity">
+<input placeholder="Battery Capacity (mAh / kWh)">
 
 
-<button onclick="location.href='driver-verification.html'">
+
+<button onclick="location.href='driver-government-id-verification.html'">
+
 Next →
+
 </button>
 
 
@@ -143,4 +145,4 @@ Next →
 
 </body>
 
-  </html>
+</html>
