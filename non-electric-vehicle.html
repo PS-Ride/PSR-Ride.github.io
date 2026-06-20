@@ -29,6 +29,7 @@ padding:12px;
 margin:8px 0;
 border-radius:8px;
 border:1px solid #ccc;
+box-sizing:border-box;
 }
 
 button{
@@ -48,6 +49,10 @@ width:auto;
 padding:8px 15px;
 }
 
+.hide{
+display:none;
+}
+
 </style>
 
 </head>
@@ -62,86 +67,64 @@ padding:8px 15px;
 <button class="back" onclick="history.back()">← Back</button>
 
 
-<h2>Non Electric Vehicle Details 🚗</h2>
+<h2>Non Electric Vehicle 🚗</h2>
 
 
 
-<select>
+<select id="type" onchange="updateCompany()">
 
 <option>Select Vehicle Type</option>
-
 <option>Bike</option>
 <option>Car</option>
 <option>Van</option>
-<option>Loader</option>
 
 </select>
 
 
 
 
-<select>
+<select id="company" onchange="updateModel()">
 
 <option>Select Company</option>
 
-<option>Honda</option>
-<option>Yamaha</option>
-<option>Suzuki</option>
-<option>Toyota</option>
-
 </select>
 
 
 
-<input placeholder="Vehicle Model">
+
+<select id="model">
+
+<option>Select Model</option>
+
+</select>
+
+
+<input placeholder="Custom Model (Optional)">
 
 
 
-<select>
+<select id="year">
 
 <option>Select Model Year</option>
 
-<option>2000</option>
-<option>2001</option>
-<option>2002</option>
-<option>2003</option>
-<option>2004</option>
-<option>2005</option>
-<option>2006</option>
-<option>2007</option>
-<option>2008</option>
-<option>2009</option>
-<option>2010</option>
-<option>2011</option>
-<option>2012</option>
-<option>2013</option>
-<option>2014</option>
-<option>2015</option>
-<option>2016</option>
-<option>2017</option>
-<option>2018</option>
-<option>2019</option>
-<option>2020</option>
-<option>2021</option>
-<option>2022</option>
-<option>2023</option>
-<option>2024</option>
-<option>2025</option>
-<option>2026</option>
-
 </select>
 
 
 
+<div id="acBox" class="hide">
+
 
 <select>
 
-<option>AC / Non AC (Cars)</option>
-
+<option>Select AC Type</option>
 <option>AC</option>
 <option>Non AC</option>
 
 </select>
+
+
+</div>
+
 
 
 
@@ -149,8 +132,10 @@ padding:8px 15px;
 
 
 
-<button onclick="location.href='driver-verification.html'">
+<button onclick="location.href='driver-government-id-verification.html'">
+
 Next →
+
 </button>
 
 
@@ -158,6 +143,156 @@ Next →
 </div>
 
 
+
+
+<script>
+
+
+let year=document.getElementById("year");
+
+
+for(let i=2000;i<=2026;i++){
+
+year.innerHTML += `<option>${i}</option>`;
+
+}
+
+
+
+function updateCompany(){
+
+let type=document.getElementById("type").value;
+
+let company=document.getElementById("company");
+
+let ac=document.getElementById("acBox");
+
+
+company.innerHTML="<option>Select Company</option>";
+
+
+if(type=="Bike"){
+
+company.innerHTML += `
+<option>Honda</option>
+<option>Yamaha</option>
+<option>Suzuki</option>
+`;
+
+ac.style.display="none";
+
+}
+
+
+if(type=="Car"){
+
+company.innerHTML += `
+<option>Toyota</option>
+<option>Honda</option>
+<option>Suzuki</option>
+`;
+
+ac.style.display="block";
+
+}
+
+
+}
+
+
+
+function updateModel(){
+
+
+let type=document.getElementById("type").value;
+
+let company=document.getElementById("company").value;
+
+let model=document.getElementById("model");
+
+
+model.innerHTML="<option>Select Model</option>";
+
+
+
+if(type=="Bike" && company=="Honda"){
+
+model.innerHTML += `
+<option>CD 70</option>
+<option>CG 125</option>
+<option>CB 125F</option>
+`;
+
+}
+
+
+
+if(type=="Bike" && company=="Yamaha"){
+
+model.innerHTML += `
+<option>YBR 125</option>
+<option>YBZ 125</option>
+`;
+
+}
+
+
+
+if(type=="Bike" && company=="Suzuki"){
+
+model.innerHTML += `
+<option>GD 110</option>
+<option>GS 150</option>
+`;
+
+}
+
+
+
+if(type=="Car" && company=="Toyota"){
+
+model.innerHTML += `
+<option>Corolla</option>
+<option>Yaris</option>
+<option>Vitz</option>
+`;
+
+}
+
+
+
+if(type=="Car" && company=="Honda"){
+
+model.innerHTML += `
+<option>Civic</option>
+<option>City</option>
+`;
+
+}
+
+
+
+if(type=="Car" && company=="Suzuki"){
+
+model.innerHTML += `
+<option>Alto</option>
+<option>Cultus</option>
+<option>Wagon R</option>
+`;
+
+}
+
+
+
+model.innerHTML += "<option>Custom</option>";
+
+
+}
+
+
+</script>
+
+
 </body>
 
-</html>
+  </html>
