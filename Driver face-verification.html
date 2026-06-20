@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Face Verification - PS Ride</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+
+.card{
+background:white;
+max-width:500px;
+margin:auto;
+padding:25px;
+border-radius:15px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#00a86b;
+color:white;
+font-size:16px;
+}
+
+.back{
+background:#555;
+width:auto;
+padding:8px 15px;
+}
+
+.note{
+background:#eee;
+padding:15px;
+border-radius:10px;
+line-height:1.6;
+}
+
+#status{
+display:none;
+margin-top:20px;
+text-align:center;
+}
+
+.timer{
+font-size:35px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<button class="back" onclick="history.back()">← Back</button>
+
+
+<h2>Face Verification 📸</h2>
+
+
+<div class="note">
+
+Instructions:
+
+<br><br>
+
+✓ Hold your Government ID card in your hand
+
+<br>
+
+✓ Front side of ID card should be clearly visible
+
+<br>
+
+✓ Your face must be clearly visible in the center
+
+<br>
+
+✓ Make sure photo is not blurry or dark
+
+<br>
+
+✓ Take the picture and submit
+
+</div>
+
+
+
+<button onclick="submitVerification()">
+
+Submit Verification
+
+</button>
+
+
+
+<div id="status">
+
+
+<div class="timer">⏳</div>
+
+
+<h3>Verification Submitted Successfully</h3>
+
+
+<p>
+
+Your KYC verification will be completed within 2 to 24 hours.
+
+Your account will be activated after approval and you will be notified.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+function submitVerification(){
+
+document.getElementById("status").style.display="block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
