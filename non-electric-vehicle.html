@@ -67,7 +67,7 @@ display:none;
 <button class="back" onclick="history.back()">← Back</button>
 
 
-<h2>Non Electric Vehicle 🚗</h2>
+<h2>Vehicle Details 🚗</h2>
 
 
 
@@ -79,7 +79,6 @@ display:none;
 <option>Van</option>
 
 </select>
-
 
 
 
@@ -99,20 +98,48 @@ display:none;
 </select>
 
 
+
 <input placeholder="Custom Model (Optional)">
 
 
 
-<select id="year">
+<select>
 
 <option>Select Model Year</option>
+
+<option>2000</option>
+<option>2001</option>
+<option>2002</option>
+<option>2003</option>
+<option>2004</option>
+<option>2005</option>
+<option>2006</option>
+<option>2007</option>
+<option>2008</option>
+<option>2009</option>
+<option>2010</option>
+<option>2011</option>
+<option>2012</option>
+<option>2013</option>
+<option>2014</option>
+<option>2015</option>
+<option>2016</option>
+<option>2017</option>
+<option>2018</option>
+<option>2019</option>
+<option>2020</option>
+<option>2021</option>
+<option>2022</option>
+<option>2023</option>
+<option>2024</option>
+<option>2025</option>
+<option>2026</option>
 
 </select>
 
 
 
 <div id="acBox" class="hide">
-
 
 <select>
 
@@ -122,9 +149,7 @@ display:none;
 
 </select>
 
-
 </div>
-
 
 
 
@@ -144,27 +169,13 @@ Next →
 
 
 
-
 <script>
-
-
-let year=document.getElementById("year");
-
-
-for(let i=2000;i<=2026;i++){
-
-year.innerHTML += `<option>${i}</option>`;
-
-}
-
 
 
 function updateCompany(){
 
 let type=document.getElementById("type").value;
-
 let company=document.getElementById("company");
-
 let ac=document.getElementById("acBox");
 
 
@@ -173,7 +184,7 @@ company.innerHTML="<option>Select Company</option>";
 
 if(type=="Bike"){
 
-company.innerHTML += `
+company.innerHTML+=`
 <option>Honda</option>
 <option>Yamaha</option>
 <option>Suzuki</option>
@@ -186,13 +197,26 @@ ac.style.display="none";
 
 if(type=="Car"){
 
-company.innerHTML += `
+company.innerHTML+=`
 <option>Toyota</option>
 <option>Honda</option>
 <option>Suzuki</option>
 `;
 
 ac.style.display="block";
+
+}
+
+
+if(type=="Van"){
+
+company.innerHTML+=`
+<option>Suzuki</option>
+<option>Toyota</option>
+<option>FAW</option>
+`;
+
+ac.style.display="none";
 
 }
 
@@ -205,9 +229,7 @@ function updateModel(){
 
 
 let type=document.getElementById("type").value;
-
 let company=document.getElementById("company").value;
-
 let model=document.getElementById("model");
 
 
@@ -217,7 +239,7 @@ model.innerHTML="<option>Select Model</option>";
 
 if(type=="Bike" && company=="Honda"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>CD 70</option>
 <option>CG 125</option>
 <option>CB 125F</option>
@@ -226,10 +248,9 @@ model.innerHTML += `
 }
 
 
-
 if(type=="Bike" && company=="Yamaha"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>YBR 125</option>
 <option>YBZ 125</option>
 `;
@@ -237,10 +258,9 @@ model.innerHTML += `
 }
 
 
-
 if(type=="Bike" && company=="Suzuki"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>GD 110</option>
 <option>GS 150</option>
 `;
@@ -249,9 +269,10 @@ model.innerHTML += `
 
 
 
+
 if(type=="Car" && company=="Toyota"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>Corolla</option>
 <option>Yaris</option>
 <option>Vitz</option>
@@ -260,10 +281,9 @@ model.innerHTML += `
 }
 
 
-
 if(type=="Car" && company=="Honda"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>Civic</option>
 <option>City</option>
 `;
@@ -271,10 +291,9 @@ model.innerHTML += `
 }
 
 
-
 if(type=="Car" && company=="Suzuki"){
 
-model.innerHTML += `
+model.innerHTML+=`
 <option>Alto</option>
 <option>Cultus</option>
 <option>Wagon R</option>
@@ -284,7 +303,39 @@ model.innerHTML += `
 
 
 
-model.innerHTML += "<option>Custom</option>";
+
+if(type=="Van" && company=="Suzuki"){
+
+model.innerHTML+=`
+<option>Bolan</option>
+<option>Ravi</option>
+`;
+
+}
+
+
+if(type=="Van" && company=="Toyota"){
+
+model.innerHTML+=`
+<option>Hiace</option>
+<option>Coaster</option>
+`;
+
+}
+
+
+if(type=="Van" && company=="FAW"){
+
+model.innerHTML+=`
+<option>X-PV</option>
+<option>Carrier</option>
+`;
+
+}
+
+
+
+model.innerHTML+="<option>Custom</option>";
 
 
 }
@@ -293,6 +344,7 @@ model.innerHTML += "<option>Custom</option>";
 </script>
 
 
+
 </body>
 
-  </html>
+</html>
