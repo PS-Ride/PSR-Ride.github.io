@@ -7,7 +7,6 @@
 
 <title>Driver Signup - PS Ride</title>
 
-
 <style>
 
 body{
@@ -15,7 +14,6 @@ font-family:Arial;
 background:#f4f4f4;
 padding:20px;
 }
-
 
 .card{
 background:white;
@@ -26,11 +24,9 @@ border-radius:15px;
 box-shadow:0 5px 15px #ccc;
 }
 
-
-h1{
+h1,h3{
 text-align:center;
 }
-
 
 input,select{
 width:100%;
@@ -40,22 +36,18 @@ border-radius:8px;
 border:1px solid #ccc;
 }
 
-
 .phone{
 display:flex;
 gap:10px;
 }
 
-
 .code{
 width:30%;
 }
 
-
 .number{
 width:70%;
 }
-
 
 button{
 width:100%;
@@ -67,9 +59,11 @@ border-radius:8px;
 font-size:16px;
 }
 
+.hidden{
+display:none;
+}
 
 </style>
-
 
 </head>
 
@@ -79,13 +73,10 @@ font-size:16px;
 
 <div class="card">
 
-
 <h1>Driver Signup 🚘</h1>
 
 
-
 <input placeholder="First Name (as per Government ID)">
-
 
 <input placeholder="Last Name (as per Government ID)">
 
@@ -95,14 +86,13 @@ font-size:16px;
 
 <input class="code" value="+92" readonly>
 
-<input class="number" placeholder="Phone number without 0">
+<input class="number" placeholder="Number without 0">
 
 </div>
 
 
 
 <input placeholder="Email Address">
-
 
 <input placeholder="CNIC Number without spaces">
 
@@ -122,7 +112,6 @@ font-size:16px;
 <select>
 
 <option>Select City</option>
-
 <option>Lahore</option>
 <option>Karachi</option>
 <option>Islamabad</option>
@@ -133,33 +122,46 @@ font-size:16px;
 <option>Quetta</option>
 <option>Sialkot</option>
 <option>Gujranwala</option>
+<option>Gujrat</option>
+<option>Jhelum</option>
+<option>Sargodha</option>
+<option>Bahawalpur</option>
+<option>Hyderabad</option>
+<option>Sukkur</option>
+<option>Larkana</option>
+<option>Mardan</option>
+<option>Abbottabad</option>
 <option>Other</option>
 
 </select>
 
 
 
-<h3>License Details</h3>
+<h3>License</h3>
 
 
-<select>
+<select id="license" onchange="licenseCheck()">
 
-<option>License Holder?</option>
-<option>Yes</option>
-<option>No</option>
+<option value="">License Holder?</option>
+<option value="yes">Yes</option>
+<option value="no">No</option>
 
 </select>
 
 
+<div id="licenseBox" class="hidden">
+
 <input placeholder="License Number">
 
+</div>
 
 
-<h3>Vehicle Details</h3>
 
 
+<h3>Vehicle</h3>
 
-<select>
+
+<select id="type" onchange="vehicleChange()">
 
 <option>Select Vehicle Type</option>
 <option>Bike</option>
@@ -169,15 +171,9 @@ font-size:16px;
 
 
 
-<select>
+<select id="company">
 
 <option>Select Company</option>
-
-<option>Honda</option>
-<option>Yamaha</option>
-<option>Suzuki</option>
-<option>Toyota</option>
-<option>Other</option>
 
 </select>
 
@@ -200,9 +196,7 @@ font-size:16px;
 <option>Suzuki Cultus</option>
 <option>Suzuki Wagon R</option>
 
-<option>Carry Dabba</option>
-
-<option>Other</option>
+<option>Loader Van</option>
 
 </select>
 
@@ -213,9 +207,25 @@ font-size:16px;
 <option>Select Model Year</option>
 
 <option>2000</option>
+<option>2001</option>
+<option>2002</option>
+<option>2003</option>
+<option>2004</option>
 <option>2005</option>
+<option>2006</option>
+<option>2007</option>
+<option>2008</option>
+<option>2009</option>
 <option>2010</option>
+<option>2011</option>
+<option>2012</option>
+<option>2013</option>
+<option>2014</option>
 <option>2015</option>
+<option>2016</option>
+<option>2017</option>
+<option>2018</option>
+<option>2019</option>
 <option>2020</option>
 <option>2021</option>
 <option>2022</option>
@@ -232,17 +242,62 @@ font-size:16px;
 
 
 
-<button>
-
-Create Driver Account
-
-</button>
-
+<button>Create Driver Account</button>
 
 
 </div>
 
 
-</body>
 
+<script>
+
+function licenseCheck(){
+
+let value=document.getElementById("license").value;
+
+let box=document.getElementById("licenseBox");
+
+
+if(value=="yes"){
+box.style.display="block";
+}
+else{
+box.style.display="none";
+}
+
+}
+
+
+
+function vehicleChange(){
+
+let type=document.getElementById("type").value;
+
+let company=document.getElementById("company");
+
+
+company.innerHTML="";
+
+if(type=="Bike"){
+
+company.innerHTML=
+"<option>Honda</option><option>Yamaha</option><option>Suzuki</option>";
+
+}
+
+
+if(type=="Car"){
+
+company.innerHTML=
+"<option>Toyota</option><option>Honda</option><option>Suzuki</option>";
+
+}
+
+}
+
+
+</script>
+
+
+</body>
   </html>
