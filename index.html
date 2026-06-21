@@ -1,86 +1,230 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PS Ride</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    font-family:Arial;
-    background:#f4f4f4;
+margin:0;
+font-family:Arial, sans-serif;
+background:#f6f8fb;
+color:#222;
 }
 
-.header{
-    background:#111;
-    color:white;
-    padding:30px;
-    text-align:center;
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:white;
+box-shadow:0 2px 10px #ddd;
 }
 
-.container{
-    padding:25px;
-    max-width:500px;
-    margin:auto;
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00a86b;
 }
+
+
+.hero{
+min-height:80vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:50px;
+gap:30px;
+}
+
+
+.hero-text{
+max-width:500px;
+animation:slide 1s ease;
+}
+
+
+.hero-text h1{
+font-size:55px;
+margin:0;
+}
+
+
+.hero-text p{
+font-size:22px;
+color:#666;
+margin:20px 0;
+}
+
+
+.buttons button{
+
+padding:15px 30px;
+border:none;
+border-radius:30px;
+margin:10px;
+font-size:17px;
+cursor:pointer;
+}
+
+
+.rider{
+background:#00a86b;
+color:white;
+}
+
+
+.driver{
+background:#222;
+color:white;
+}
+
+
+.hero-image img{
+
+width:500px;
+max-width:100%;
+border-radius:25px;
+animation:zoom 5s infinite alternate;
+
+}
+
+
+.cards{
+
+display:flex;
+justify-content:center;
+gap:20px;
+padding:40px;
+flex-wrap:wrap;
+
+}
+
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    margin-top:20px;
-    box-shadow:0 5px 15px #ccc;
-    text-align:center;
+
+background:white;
+padding:25px;
+width:250px;
+border-radius:20px;
+box-shadow:0 5px 20px #ddd;
+text-align:center;
+
 }
 
-button{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    background:#00a86b;
-    color:white;
+
+
+@keyframes slide{
+
+from{
+opacity:0;
+transform:translateX(-50px);
 }
+
+to{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+
+@keyframes zoom{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.08);
+}
+
+}
+
+
+
+footer{
+
+background:#111;
+color:white;
+padding:30px;
+text-align:center;
+
+}
+
+
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="header">
-<h1>PS Ride 🚗</h1>
-<p>Fast & Easy Ride Booking</p>
+
+<div class="navbar">
+
+<div class="logo">
+PS Ride
 </div>
 
-<div class="hero">
+<div>
+Safe • Fast • Reliable
+</div>
+
+</div>
+
+
+
+<section class="hero">
+
 
 <div class="hero-text">
+
 
 <h1>
 Your Ride, Your Way 🚗
 </h1>
 
+
 <p>
-Fast, Safe & Reliable rides whenever you need them.
+Book safe and affordable rides anytime.
+Drive with us and earn more.
 </p>
 
 
-<div class="hero-buttons">
 
-<button onclick="location.href='rider-signup.html'">
-Book a Ride
+<div class="buttons">
+
+
+<button class="rider"
+onclick="location.href='rider-signup.html'">
+
+🚗 Rider (Book a Ride)
+
 </button>
 
 
-<button onclick="location.href='driver-signup.html'">
-Drive With Us
+
+<button class="driver"
+onclick="location.href='driver-info.html'">
+
+🚘 Driver (Earn Money)
+
 </button>
+
 
 </div>
+
 
 </div>
 
@@ -88,37 +232,72 @@ Drive With Us
 
 <div class="hero-image">
 
-<img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200"
->
 
-</div>
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200">
 
 
 </div>
-    
-<div class="container">
+
+
+
+</section>
+
+
+
+
+<div class="cards">
 
 
 <div class="card">
 
-<h2>Continue As</h2>
+<h2>🚗 Ride Booking</h2>
+
+<p>
+Fast rides at your location.
+</p>
+
+</div>
 
 
 
-<button onclick="location.href='rider-signup.html'" style="background:#00a86b;color:white;padding:15px;border-radius:12px;">
-🚗 Rider (Book a Ride)
-</button>
+<div class="card">
 
-<button onclick="location.href='driver-info.html'" style="background:#222;color:white;padding:15px;border-radius:12px;">
-🚘 Driver (Earn Money)
-</button>
+<h2>🚘 Drivers</h2>
 
+<p>
+Join PS Ride and earn.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🛡 Safety</h2>
+
+<p>
+Secure and trusted travel.
+</p>
 
 </div>
 
 
 </div>
+
+
+
+<footer>
+
+<h3>PS Ride Customer Care</h3>
+
+<p>
+Support available 24/7
+</p>
+
+</footer>
+
 
 
 </body>
-</html>
+    </html>
