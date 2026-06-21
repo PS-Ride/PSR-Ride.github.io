@@ -9,161 +9,201 @@
 <style>
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
+
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#ffffff;
-color:#111;
+
+min-height:100vh;
+background:
+linear-gradient(135deg,#06141b,#0b2e2a);
+color:white;
+overflow-x:hidden;
+
+}
+
+
+body:before{
+
+content:"";
+position:fixed;
+width:400px;
+height:400px;
+background:#00ff99;
+filter:blur(150px);
+opacity:.25;
+top:-100px;
+left:-100px;
+animation:glow 5s infinite alternate;
+
 }
 
 
 .header{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 30px;
+padding:25px 8%;
+
 }
 
 
 .logo{
-font-size:28px;
+
+font-size:32px;
 font-weight:bold;
-color:#00a86b;
+color:#00ff99;
+
 }
+
+
+.tag{
+
+color:#aaa;
+
+}
+
 
 
 .hero{
 
-min-height:80vh;
+min-height:75vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:30px;
-gap:20px;
-
-}
-
-
-.left{
-
-width:45%;
-animation:fade 1s ease;
-
-}
-
-
-.left h1{
-
-font-size:48px;
-margin:0;
-
-}
-
-
-.left span{
-
-color:#00a86b;
-
-}
-
-
-.left p{
-
-font-size:18px;
-color:#666;
+padding:40px 8%;
+gap:30px;
 
 }
 
 
 
-.btns button{
+.heroText{
 
-padding:14px 25px;
-border:0;
-border-radius:30px;
-margin:8px;
-font-size:16px;
+animation:up 1s ease;
+
+}
+
+
+.heroText h1{
+
+font-size:60px;
+line-height:1.1;
+
+}
+
+
+.heroText h1 span{
+
+color:#00ff99;
+
+}
+
+
+.heroText p{
+
+margin:25px 0;
+font-size:20px;
+color:#ccc;
+
+}
+
+
+
+.buttons button{
+
+padding:16px 35px;
+border-radius:40px;
+border:none;
+margin-right:15px;
 cursor:pointer;
+font-size:16px;
+transition:.3s;
 
 }
+
+
+.buttons button:hover{
+
+transform:scale(1.08);
+
+}
+
 
 
 .rider{
 
-background:#00a86b;
-color:white;
+background:#00ff99;
+color:#001;
 
 }
+
 
 
 .driver{
 
-background:#111;
-color:white;
+background:white;
+color:#111;
 
 }
 
 
 
-.right img{
 
-width:450px;
-max-width:100%;
-border-radius:20px;
+.carBox{
+
+width:45%;
 animation:float 4s infinite alternate;
 
 }
 
 
+.carBox img{
 
-.services{
+width:100%;
+border-radius:30px;
+box-shadow:0 0 40px #00ff9955;
+
+}
+
+
+
+.features{
 
 display:flex;
 justify-content:center;
-gap:20px;
-padding:30px;
+gap:25px;
+padding:40px 8%;
 flex-wrap:wrap;
 
 }
 
 
-.box{
 
-width:250px;
+.card{
+
+background:#ffffff12;
+backdrop-filter:blur(15px);
 padding:25px;
-border-radius:20px;
-background:#f7f7f7;
+border-radius:25px;
+width:250px;
 text-align:center;
-box-shadow:0 5px 20px #ddd;
+border:1px solid #ffffff22;
 
 }
+
 
 
 footer{
 
-background:#111;
-color:white;
-padding:25px;
 text-align:center;
-
-}
-
-
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+padding:25px;
+color:#aaa;
 
 }
 
@@ -176,10 +216,67 @@ transform:translateY(0);
 }
 
 to{
-transform:translateY(-15px);
+transform:translateY(-20px);
 }
 
 }
+
+
+@keyframes up{
+
+from{
+
+opacity:0;
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@keyframes glow{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.5);
+}
+
+}
+
+
+@media(max-width:800px){
+
+.hero{
+
+flex-direction:column;
+
+}
+
+.heroText h1{
+
+font-size:42px;
+
+}
+
+.carBox{
+
+width:90%;
+
+}
+
+}
+
 
 
 </style>
@@ -196,8 +293,8 @@ transform:translateY(-15px);
 PS Ride
 </div>
 
-<div>
-Safe • Fast • Ride
+<div class="tag">
+Safe • Fast • Reliable
 </div>
 
 </div>
@@ -207,25 +304,21 @@ Safe • Fast • Ride
 <section class="hero">
 
 
-<div class="left">
+<div class="heroText">
 
 
 <h1>
-
-Move with <span>PS Ride</span>
-
+Your <span>Ride</span><br>
+Starts Here
 </h1>
 
 
 <p>
-
-Book rides easily. Travel safely.
-
+Book safe rides or join as a driver.
 </p>
 
 
-
-<div class="btns">
+<div class="buttons">
 
 
 <button class="rider"
@@ -252,13 +345,12 @@ onclick="location.href='driver-info.html'">
 
 
 
-<div class="right">
+<div class="carBox">
 
-
-<img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=900">
-
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
 
 </div>
+
 
 
 </section>
@@ -266,40 +358,40 @@ onclick="location.href='driver-info.html'">
 
 
 
-<div class="services">
+<div class="features">
 
 
-<div class="box">
+<div class="card">
 
 <h2>🚗</h2>
-<h3>Ride Booking</h3>
-<p>Quick rides anytime</p>
+<h3>Fast Rides</h3>
+<p>Quick pickup</p>
 
 </div>
 
 
 
-<div class="box">
-
-<h2>🚘</h2>
-<h3>Drivers</h3>
-<p>Earn with PS Ride</p>
-
-</div>
-
-
-
-<div class="box">
+<div class="card">
 
 <h2>🛡</h2>
 <h3>Safety</h3>
-<p>Secure travel</p>
+<p>Trusted travel</p>
 
 </div>
 
 
+
+<div class="card">
+
+<h2>💰</h2>
+<h3>Drivers</h3>
+<p>Earn more</p>
+
 </div>
 
+
+
+</div>
 
 
 
@@ -310,6 +402,5 @@ PS Ride Customer Care
 </footer>
 
 
-
 </body>
-</html>
+  </html>
