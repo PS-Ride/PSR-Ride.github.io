@@ -469,6 +469,8 @@ Complete KYC Verification
 
 function createAccount(){
 
+localStorage.setItem("riderCreated","yes");
+
 document.getElementById("form").style.display="none";
 
 document.getElementById("success").style.display="block";
@@ -478,6 +480,20 @@ document.querySelector(".success-icon").classList.add("show");
 window.scrollTo(0,0);
 
 }
+
+
+
+window.onload=function(){
+
+if(localStorage.getItem("riderCreated")=="yes"){
+
+document.getElementById("form").style.display="none";
+
+document.getElementById("success").style.display="block";
+
+}
+
+   }
 
 
 </script>
