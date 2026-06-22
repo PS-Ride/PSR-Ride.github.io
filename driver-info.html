@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Driver Info - PS Ride</title>
 
 <style>
@@ -14,10 +11,9 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
-/* PREMIUM ANIMATED BACKGROUND */
 body{
 min-height:100vh;
 display:flex;
@@ -25,184 +21,111 @@ align-items:center;
 justify-content:center;
 padding:20px;
 
-background: linear-gradient(-45deg,#0f172a,#064e3b,#0f766e,#1e293b);
-background-size:400% 400%;
-animation:bgMove 10s ease infinite;
-overflow-x:hidden;
+/* PREMIUM BACKGROUND */
+background:linear-gradient(135deg,#f4fff8,#eefcf4,#ffffff);
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* FLOATING LIGHT GLOW */
-body::before{
-content:"";
-position:absolute;
-width:400px;
-height:400px;
-background:rgba(0,255,170,.15);
-filter:blur(120px);
-top:-100px;
-left:-100px;
-}
-
-body::after{
-content:"";
-position:absolute;
-width:400px;
-height:400px;
-background:rgba(0,140,255,.15);
-filter:blur(120px);
-bottom:-120px;
-right:-120px;
-}
-
-/* CARD */
+/* GLASS CARD (UBER STYLE) */
 .card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-
-max-width:500px;
 width:100%;
+max-width:520px;
+padding:30px;
+border-radius:35px;
 
-margin:auto;
-padding:25px;
+background:rgba(255,255,255,0.82);
+backdrop-filter:blur(18px);
 
-border-radius:22px;
-
-border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.6),
-inset 0 0 15px rgba(255,255,255,.05);
-
-position:relative;
-z-index:1;
-
-animation:floatCard 6s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-6px);}
+box-shadow:0 30px 80px rgba(0,0,0,0.12);
+animation:fadeIn .5s ease;
 }
 
 /* TITLE */
 h2{
 text-align:center;
-color:#fff;
-margin-bottom:15px;
 font-size:26px;
-text-shadow:0 0 15px rgba(0,255,179,.4);
+font-weight:900;
+color:#111;
+margin-bottom:20px;
 }
 
 /* INPUTS */
 input,select{
 width:100%;
-padding:13px;
-margin:8px 0;
+padding:14px;
+margin:10px 0;
 
-border-radius:12px;
+border-radius:15px;
+border:1px solid #ddd;
 
-border:1px solid rgba(255,255,255,.15);
-
-background:rgba(255,255,255,.06);
-color:#fff;
-
-outline:none;
+font-size:15px;
 
 transition:.3s;
-}
-
-input::placeholder{
-color:rgba(255,255,255,.5);
+background:white;
 }
 
 input:focus,select:focus{
-border-color:#00ffb3;
-box-shadow:0 0 0 3px rgba(0,255,179,.2);
-transform:translateY(-2px);
+border-color:#00a86b;
+box-shadow:0 0 0 4px rgba(0,168,107,0.12);
+outline:none;
 }
 
-/* BUTTON */
+/* BUTTON BASE */
 button{
 width:100%;
-padding:14px;
+padding:16px;
+margin-top:12px;
 
 border:none;
-border-radius:14px;
+border-radius:30px;
 
 font-size:16px;
-font-weight:bold;
+font-weight:800;
 
 cursor:pointer;
-transition:.3s;
-
-margin-top:10px;
-
-position:relative;
-overflow:hidden;
+transition:.25s;
 }
 
-/* NEXT BUTTON PREMIUM */
+/* PRIMARY BUTTON (YES / NEXT) */
 button:not(.back){
-background:linear-gradient(135deg,#00ffb3,#00aaff);
-color:#001018;
-
-box-shadow:0 10px 30px rgba(0,255,179,.3);
+background:linear-gradient(135deg,#00a86b,#00d084);
+color:white;
+box-shadow:0 15px 35px rgba(0,168,107,0.35);
 }
 
-/* SHINE EFFECT */
-button:not(.back)::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:rgba(255,255,255,.25);
-transform:skewX(-25deg);
-transition:.5s;
-}
-
-button:not(.back):hover::before{
-left:120%;
-}
-
-/* BACK BUTTON */
+/* BACK BUTTON (BLACK LIKE REQUESTED) */
 .back{
-background:rgba(255,255,255,.08);
-color:#fff;
-border:1px solid rgba(255,255,255,.15);
+background:#111;
+color:white;
 width:auto;
-padding:8px 14px;
-border-radius:10px;
+padding:10px 18px;
+border-radius:20px;
 margin-bottom:10px;
 }
 
-.back:hover{
+/* HOVER EFFECT */
+button:hover{
 transform:translateY(-2px);
-box-shadow:0 0 15px rgba(0,255,179,.2);
 }
 
-/* HIDDEN */
+/* HIDDEN BOX */
 .hidden{
 display:none;
 }
 
-</style>
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
 
+</style>
 </head>
 
 <body>
 
 <div class="card">
 
-<button class="back" onclick="history.back()">← Back</button>
+<button class="back" onclick="history.back()">⬅ Back</button>
 
 <h2>Driver Signup 🚘</h2>
 
@@ -210,6 +133,7 @@ display:none;
 <input placeholder="Last Name (as per Government ID)">
 
 <input type="tel" placeholder="+92 3XXXXXXXXX">
+
 <input placeholder="Email Address">
 <input placeholder="CNIC Number without spaces">
 
@@ -227,54 +151,17 @@ display:none;
 <option>Rawalpindi</option>
 <option>Faisalabad</option>
 <option>Multan</option>
+<option>Peshawar</option>
+<option>Quetta</option>
 <option>Gujranwala</option>
 <option>Sialkot</option>
 <option>Gujrat</option>
-<option>Sheikhupura</option>
-<option>Narowal</option>
-<option>Shakargarh</option>
-<option>Zafarwal</option>
-<option>Kasur</option>
-<option>Okara</option>
-<option>Sahiwal</option>
-<option>Sargodha</option>
 <option>Jhelum</option>
-<option>Chakwal</option>
-<option>Attock</option>
-<option>Mianwali</option>
-<option>Khushab</option>
+<option>Sargodha</option>
 <option>Bahawalpur</option>
-<option>Rahim Yar Khan</option>
-<option>Dera Ghazi Khan</option>
-<option>Muzaffargarh</option>
-<option>Chiniot</option>
-<option>Jhang</option>
-<option>Toba Tek Singh</option>
-
-<option>Peshawar</option>
-<option>Mardan</option>
-<option>Abbottabad</option>
-<option>Swat</option>
-<option>Nowshera</option>
-<option>Kohat</option>
-<option>Bannu</option>
-<option>Charsadda</option>
-
-<option>Quetta</option>
-<option>Gwadar</option>
-<option>Turbat</option>
-<option>Khuzdar</option>
-<option>Ziarat</option>
-
 <option>Hyderabad</option>
 <option>Sukkur</option>
 <option>Larkana</option>
-<option>Nawabshah</option>
-<option>Mirpurkhas</option>
-
-<option>Muzaffarabad</option>
-<option>Mirpur</option>
-<option>Rawalakot</option>
 </select>
 
 <select id="license" onchange="checkLicense()">
@@ -287,6 +174,7 @@ display:none;
 <input placeholder="License Number">
 </div>
 
+<!-- NEXT BUTTON SAME LINK (NOT CHANGED) -->
 <button onclick="location.href='vehicle-choice.html'">
 Next →
 </button>
@@ -301,8 +189,7 @@ let box=document.getElementById("licenseBox");
 
 if(value=="yes"){
 box.style.display="block";
-}
-else{
+}else{
 box.style.display="none";
 }
 }
