@@ -7,6 +7,7 @@
 
 <title>Rider Signup - PS Ride</title>
 
+
 <style>
 
 *{
@@ -24,9 +25,9 @@ min-height:100vh;
 background:
 linear-gradient(
 135deg,
-#f7fff9 0%,
-#eefcf4 40%,
-#ffffff 100%
+#f7fff9,
+#eefcf4,
+#ffffff
 );
 
 display:flex;
@@ -83,7 +84,11 @@ height:75px;
 
 margin:15px auto;
 
-background:linear-gradient(135deg,#00a86b,#00d084);
+background:linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
 
 border-radius:25px;
 
@@ -93,9 +98,16 @@ justify-content:center;
 
 color:white;
 
-font-size:35px;
-
 box-shadow:0 20px 40px #00a86b45;
+
+}
+
+
+
+.car svg{
+
+width:45px;
+height:45px;
 
 }
 
@@ -125,8 +137,6 @@ border:1px solid #ddd;
 
 outline:none;
 
-background:white;
-
 }
 
 
@@ -134,23 +144,19 @@ background:white;
 .phone{
 
 display:flex;
-
 gap:10px;
 
 }
 
 
+
 .code{
-
 width:30%;
-
 }
 
 
 .number{
-
 width:70%;
-
 }
 
 
@@ -173,27 +179,20 @@ font-weight:700;
 
 cursor:pointer;
 
-transition:.3s;
-
-}
-
-
-
-button:hover{
-
-transform:translateY(-3px);
-
 }
 
 
 
 .create{
 
-background:linear-gradient(135deg,#00a86b,#00d084);
+background:
+linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
 
 color:white;
-
-box-shadow:0 15px 35px #00a86b45;
 
 }
 
@@ -208,6 +207,25 @@ color:white;
 }
 
 
+
+.form{
+
+display:block;
+
+}
+
+
+
+.success{
+
+display:none;
+
+text-align:center;
+
+}
+
+
+
 .success-icon{
 
 width:85px;
@@ -217,17 +235,22 @@ margin:0 auto 25px;
 
 border-radius:50%;
 
-background:linear-gradient(135deg,#00a86b,#00d084);
-
-color:white;
+background:
+linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
 
 display:flex;
+
 align-items:center;
 justify-content:center;
 
-box-shadow:0 20px 50px #00a86b45;
+color:white;
 
 }
+
 
 
 .success-icon svg{
@@ -235,35 +258,9 @@ box-shadow:0 20px 50px #00a86b45;
 width:45px;
 height:45px;
 
-  }
-  .success-icon.show{
-
-animation:pop .5s ease;
-
 }
 
 
-@keyframes pop{
-
-0%{
-transform:scale(.5);
-opacity:0;
-}
-
-100%{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-.success{
-
-display:none;
-
-text-align:center;
-
-  }
 
 .success h2{
 
@@ -294,20 +291,8 @@ transform:translateY(0);
 }
 
 
-
-@media(max-width:600px){
-
-.card{
-
-padding:25px;
-
-}
-
-}
-
-
-
 </style>
+
 
 </head>
 
@@ -319,12 +304,37 @@ padding:25px;
 <div class="card">
 
 
+
 <div class="logo">
 PS Ride
 </div>
 
 
+
+<div class="car">
+
+<svg viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M5 17h14"/>
+
+<path d="M6 17l2-6h8l2 6"/>
+
+<circle cx="8" cy="17" r="1.5"/>
+
+<circle cx="16" cy="17" r="1.5"/>
+
+</svg>
+
+
+</div>
+
+
+
 <div id="form">
+
 
 
 <h1>
@@ -336,16 +346,18 @@ Rider Signup
 <input placeholder="First Name (as per Government ID)">
 
 
-
 <input placeholder="Last Name (as per Government ID)">
 
 
 
 <div class="phone">
 
+
 <input class="code" value="+92" readonly>
 
+
 <input class="number" placeholder="Number without 0">
+
 
 </div>
 
@@ -354,20 +366,18 @@ Rider Signup
 <input placeholder="Email Address">
 
 
-
 <input placeholder="CNIC Number without spaces">
-
 
 
 <select>
 
 <option>Select Gender</option>
+
 <option>Male</option>
+
 <option>Female</option>
 
 </select>
-
-
 
 
 <select>
@@ -375,17 +385,18 @@ Rider Signup
 <option>Select City</option>
 
 <option>Lahore</option>
+
 <option>Karachi</option>
+
 <option>Islamabad</option>
+
 <option>Rawalpindi</option>
-<option>Other</option>
 
 </select>
 
 
 
 <input type="password" placeholder="Create Password">
-
 
 
 <input type="password" placeholder="Confirm Password">
@@ -398,29 +409,33 @@ Create Rider Account
 </button>
 
 
-</div>
 
+  </div>
+
+</div>
 
 
 
 <div class="success" id="success">
 
 
+
 <div class="success-icon">
 
-<svg 
-viewBox="0 0 24 24"
+
+<svg viewBox="0 0 24 24"
 fill="none"
 stroke="currentColor"
-stroke-width="3"
-stroke-linecap="round"
-stroke-linejoin="round">
+stroke-width="3">
 
-<path d="M20 6L9 17l-5-5"></path>
+<path d="M20 6L9 17l-5-5"/>
 
 </svg>
 
+
 </div>
+
+
 
 
 <h2>
@@ -428,30 +443,36 @@ Welcome to PS Ride
 </h2>
 
 
+
 <p>
+
 Your rider account has been created successfully.
+
 </p>
 
-<button class="back" onclick="history.back()">
 
-⬅ Back
 
-</button>  
 
-<button class="create" onclick="location.href='rider-verification.html'">
+<button class="create"
+onclick="location.href='rider-verification.html'">
 
 Complete KYC Verification
 
 </button>
 
-  <button class="back" onclick="history.back()">
+
+
+<button class="back" onclick="history.back()">
 
 ⬅ Back
 
-  </button>
+</button>
+
 
 
 </div>
+
+
 
 
 
@@ -460,37 +481,25 @@ Complete KYC Verification
 
 function createAccount(){
 
-localStorage.setItem("riderCreated","yes");
 
 document.getElementById("form").style.display="none";
 
+
 document.getElementById("success").style.display="block";
 
-document.querySelector(".success-icon").classList.add("show");
 
 window.scrollTo(0,0);
 
-}
-
-
-
-window.onload=function(){
-
-if(localStorage.getItem("riderCreated")=="yes"){
-
-document.getElementById("form").style.display="none";
-
-document.getElementById("success").style.display="block";
 
 }
 
-   }
 
 
 </script>
 
 
 
+
 </body>
 
-  </html>
+</html>  
