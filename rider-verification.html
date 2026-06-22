@@ -44,7 +44,8 @@ padding:25px;
 
 width:100%;
 max-width:520px;
-
+min-height:520px;
+  
 background:rgba(255,255,255,.75);
 
 backdrop-filter:blur(18px);
@@ -127,8 +128,20 @@ color:#555;
 }
 
 .typing-text{
-height:40px;
-overflow:hidden;
+
+height:auto;
+
+min-height:40px;
+
+overflow:visible;
+
+margin-top:15px;
+
+line-height:22px;
+
+position:relative;
+z-index:2;
+  
 }
 
 button{
