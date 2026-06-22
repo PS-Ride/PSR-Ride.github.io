@@ -208,14 +208,34 @@ color:white;
 }
 
 
+.success-icon{
 
-.success{
+width:85px;
+height:85px;
 
-display:none;
+margin:0 auto 25px;
 
-text-align:center;
+border-radius:50%;
+
+background:linear-gradient(135deg,#00a86b,#00d084);
+
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 20px 50px #00a86b45;
 
 }
+
+
+.success-icon svg{
+
+width:45px;
+height:45px;
+
+  }
 
 
 
@@ -280,7 +300,25 @@ PS Ride
 
 <div class="car">
 
-🚗
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M5 17h14"></path>
+
+<path d="M6 17l1.5-6h9L18 17"></path>
+
+<circle cx="8" cy="17" r="1.5"></circle>
+
+<circle cx="16" cy="17" r="1.5"></circle>
+
+<path d="M9 11V8h6v3"></path>
+
+</svg>
 
 </div>
 
@@ -376,31 +414,44 @@ Create Rider Account
 
 <div class="success" id="success">
 
+<div class="success" id="success">
+
+
+<div class="success-icon">
+
+<svg 
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M20 6L9 17l-5-5"></path>
+
+</svg>
+
+</div>
+
 
 <h2>
-Account Created Successfully 🎉
+Welcome to PS Ride
 </h2>
 
 
 <p>
-Welcome to PS Ride.
-Your rider account is ready.
+Your rider account has been created successfully.
 </p>
 
 
 <button class="create" onclick="location.href='index.html'">
 
-Continue
+Start Riding
 
 </button>
 
 
 </div>
-
-
-
-</div>
-
 
 
 
