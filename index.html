@@ -80,12 +80,15 @@ color:#555;
 
 
 .hero{
-min-height:85vh;
+
+min-height:88vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:60px 8%;
+padding:70px 8%;
+gap:40px;
 overflow:hidden;
+
 }
 
 
@@ -98,8 +101,12 @@ animation:show 1s ease;
 
 
 .hero-text h1{
-font-size:58px;
-line-height:1.1;
+
+font-size:64px;
+line-height:1.05;
+font-weight:800;
+letter-spacing:-1px;
+
 }
 
 
@@ -133,7 +140,10 @@ transition:.3s;
 
 
 .action button:hover{
-transform:translateY(-5px);
+
+transform:translateY(-6px);
+box-shadow:0 15px 30px #00000025;
+
 }
 
 
@@ -171,9 +181,20 @@ z-index:1;
 
 
 .hero-img img{
+
 width:100%;
 border-radius:35px;
-box-shadow:0 20px 50px #0003;
+box-shadow:0 25px 60px #00000035;
+transform:scale(1.03);
+transition:.5s;
+
+}
+
+
+.hero-img img:hover{
+
+transform:scale(1.08);
+
 }
 
 
