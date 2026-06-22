@@ -402,13 +402,9 @@ Drive With Us
 
 <div class="brand-message">
 
-<h2>
-Our Roads. Our People. Our Ride.
-</h2>
+<h2 id="typing-title"></h2>
 
-<p>
-Created by Pakistanis, For Pakistan.
-</p>
+<p id="typing-text"></p>
 
 </div>
 
@@ -709,6 +705,23 @@ font-weight:700;
 
   }
 
+#typing-title::after,
+#typing-text::after{
+
+content:"|";
+animation:blink .8s infinite;
+
+}
+
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
+  }
+  
 </style>
 
 
@@ -740,7 +753,66 @@ Customer Care Available 24/7
 
 </div>
 
+<script>
 
+let title="Our Roads. Our People. Our Ride.";
+let text="Created by Pakistanis, For Pakistan.";
+
+let i=0;
+let j=0;
+
+
+function typeTitle(){
+
+if(i<title.length){
+
+document.getElementById("typing-title").innerHTML += title.charAt(i);
+
+i++;
+
+setTimeout(typeTitle,80);
+
+}else{
+
+setTimeout(typeText,500);
+
+}
+
+}
+
+
+function typeText(){
+
+if(j<text.length){
+
+document.getElementById("typing-text").innerHTML += text.charAt(j);
+
+j++;
+
+setTimeout(typeText,80);
+
+}else{
+
+setTimeout(()=>{
+
+document.getElementById("typing-title").innerHTML="";
+document.getElementById("typing-text").innerHTML="";
+
+i=0;
+j=0;
+
+typeTitle();
+
+},2500);
+
+}
+
+}
+
+
+typeTitle();
+
+</script>
 
 
 </body>
