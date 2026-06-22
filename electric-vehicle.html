@@ -3,82 +3,217 @@
 
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Electric Vehicle - PS Ride</title>
 
 <style>
 
-body{
-font-family:Arial;
-background:#f4f4f4;
-padding:20px;
-}
-
-.card{
-background:white;
-max-width:500px;
-margin:auto;
-padding:25px;
-border-radius:15px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+/* RESET */
+*{
+margin:0;
+padding:0;
 box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
-button{
+/* BACKGROUND */
+body{
+
+min-height:100vh;
+
+background:
+linear-gradient(
+135deg,
+#f4fff8 0%,
+#eefcf4 45%,
+#ffffff 100%
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+}
+
+/* GLASS CARD */
+.card{
+
 width:100%;
-padding:14px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-background:#00a86b;
-color:white;
-font-size:16px;
+max-width:520px;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(18px);
+
+border-radius:35px;
+
+padding:30px;
+
+box-shadow:0 30px 80px rgba(0,0,0,.12);
+
+animation:fadeIn .6s ease;
+
 }
 
+/* TITLE */
+h2{
+
+text-align:center;
+
+font-size:28px;
+
+font-weight:900;
+
+color:#111;
+
+margin-bottom:15px;
+
+}
+
+/* INPUTS */
+input,select{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+background:white;
+
+}
+
+input:focus,select:focus{
+
+border-color:#00a86b;
+
+box-shadow:0 0 0 4px rgba(0,168,107,.12);
+
+}
+
+/* BUTTONS */
+button{
+
+width:100%;
+
+padding:16px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:35px;
+
+font-size:16px;
+
+font-weight:800;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* PRIMARY */
+.primary{
+
+background:linear-gradient(135deg,#00a86b,#00d084);
+
+color:white;
+
+box-shadow:0 15px 35px rgba(0,168,107,.35);
+
+}
+
+/* BACK BUTTON */
 .back{
-background:#555;
+
+background:linear-gradient(135deg,#111,#333);
+
+color:white;
+
 width:auto;
-padding:8px 15px;
+
+padding:10px 18px;
+
+border-radius:25px;
+
+margin-bottom:10px;
+
+}
+
+/* SMALL TEXT */
+.note{
+
+text-align:center;
+
+font-size:14px;
+
+color:#666;
+
+margin-bottom:15px;
+
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="card">
 
+<button class="back" onclick="history.back()">⬅ Back</button>
 
-<button class="back" onclick="history.back()">← Back</button>
+<h2>Electric Vehicle ⚡</h2>
 
+<p class="note">Select your vehicle details carefully</p>
 
-<h2>Electric Vehicle Details ⚡</h2>
-
-
+<h3 style="margin-top:20px;">Vehicle Selection</h3>
 
 <select id="type" onchange="updateCompany()">
 
-<option>Select Vehicle Type</option>
-
-<option>Electric Bike</option>
-<option>Electric Rickshaw</option>
-<option>Electric Car</option>
+<option value="">Select Vehicle Type</option>
+<option value="Electric Bike">Electric Bike</option>
+<option value="Electric Rickshaw">Electric Rickshaw</option>
+<option value="Electric Car">Electric Car</option>
 
 </select>
-
-
-
 
 <select id="company" onchange="updateModel()">
 
@@ -86,25 +221,17 @@ padding:8px 15px;
 
 </select>
 
-
-
-
 <select id="model">
 
 <option>Select Model</option>
 
 </select>
 
-
-
 <input placeholder="Custom Model (Optional)">
-
-
 
 <select>
 
 <option>Select Model Year</option>
-
 <option>2020</option>
 <option>2021</option>
 <option>2022</option>
@@ -115,167 +242,55 @@ padding:8px 15px;
 
 </select>
 
-
-
-
 <input placeholder="Registration Number">
+<input placeholder="Battery Capacity (kWh / mAh)">
 
+<h3 style="margin-top:25px;">Company Options</h3>
 
-<input placeholder="Battery Capacity (mAh / kWh)">
+<select id="companyExtra">
 
+<option>Select Extra Option</option>
 
+</select>
 
-<button onclick="location.href='driver-government-id-verification.html'">
+<h3 style="margin-top:25px;">Final Step</h3>
 
-Next →
-
+<button class="primary" onclick="submitEV()">
+Create Electric Vehicle Account
 </button>
 
-
+<button class="back" onclick="history.back()">
+⬅ Back
+</button>
 
 </div>
 
-
-
-
 <script>
 
+/* SUBMIT FUNCTION */
+function submitEV(){
 
-function updateCompany(){
+alert("Electric Vehicle Account Created Successfully (Demo)");
 
-let type=document.getElementById("type").value;
-
-let company=document.getElementById("company");
-
-
-company.innerHTML="<option>Select Company</option>";
-
-
-
-if(type=="Electric Bike"){
-
-company.innerHTML += `
-<option>Yadea</option>
-<option>Metro</option>
-<option>United</option>
-<option>Other</option>
-`;
+/* smooth reload so page breaks nahi hoti */
+setTimeout(()=>{
+location.reload();
+},1200);
 
 }
 
+/* safety fix (no UI break) */
+function safeCheck(){
 
-if(type=="Electric Rickshaw"){
-
-company.innerHTML += `
-<option>Metro</option>
-<option>Qingqi</option>
-<option>Other</option>
-`;
-
+if(!document.getElementById("type").value){
+return false;
 }
 
-
-if(type=="Electric Car"){
-
-company.innerHTML += `
-<option>BYD</option>
-<option>MG</option>
-<option>Other</option>
-`;
+return true;
 
 }
-
-
-}
-
-
-
-function updateModel(){
-
-let type=document.getElementById("type").value;
-
-let company=document.getElementById("company").value;
-
-let model=document.getElementById("model");
-
-
-model.innerHTML="<option>Select Model</option>";
-
-
-
-if(type=="Electric Bike" && company=="Yadea"){
-
-model.innerHTML += `
-<option>G5</option>
-<option>T5</option>
-`;
-
-}
-
-
-
-if(type=="Electric Bike" && company=="Metro"){
-
-model.innerHTML += `
-<option>T9</option>
-<option>M6</option>
-`;
-
-}
-
-
-
-if(type=="Electric Bike" && company=="United"){
-
-model.innerHTML += `
-<option>US 100</option>
-<option>US 200</option>
-`;
-
-}
-
-
-
-if(type=="Electric Car" && company=="BYD"){
-
-model.innerHTML += `
-<option>Atto 3</option>
-<option>Dolphin</option>
-`;
-
-}
-
-
-
-if(type=="Electric Car" && company=="MG"){
-
-model.innerHTML += `
-<option>ZS EV</option>
-`;
-
-}
-
-
-
-if(type=="Electric Rickshaw"){
-
-model.innerHTML += `
-<option>Electric Rickshaw Model</option>
-`;
-
-}
-
-
-
-model.innerHTML += "<option>Custom</option>";
-
-}
-
 
 </script>
 
-
-
 </body>
-
-</html>
+</html>  
