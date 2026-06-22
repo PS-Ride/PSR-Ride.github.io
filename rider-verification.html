@@ -297,7 +297,7 @@ Upload ID Card
 <input type="file">
 
 
-<button class="yes">
+<button class="yes" onclick="submitVerification()">
 
 Submit Verification
 
@@ -309,9 +309,46 @@ Submit Verification
 
 
 
-<div class="error" id="error">
+<div class="bform" id="bform" style="display:none;">
+
+<p>
+Do you have B-Form?
+</p>
+
+<button class="yes" onclick="yesBform()">
+YES
+</button>
+
+<button class="no" onclick="noBform()">
+NO
+</button>
+
+
+<div class="upload" id="bformUpload" style="display:none;">
+
+<h3>
+Upload B-Form
+</h3>
+
+<input type="file">
+
+
+<button class="yes" onclick="submitVerification()">
+
+Submit Verification
+
+</button>
+
+</div>
+
+
+<div class="error" id="bformError" style="display:none;">
 
 Sorry, you cannot continue without verification.
+Please complete verification to use PS Ride.
+
+</div>
+
 
 </div>
 
@@ -338,11 +375,52 @@ function noID(){
 
 document.getElementById("upload").style.display="none";
 
-document.getElementById("error").style.display="block";
+document.getElementById("bform").style.display="block";
+
+}
+
+function yesBform(){
+
+document.getElementById("bformUpload").style.display="block";
+
+document.getElementById("bformError").style.display="none";
 
 }
 
 
+function noBform(){
+
+document.getElementById("bformUpload").style.display="none";
+
+document.getElementById("bformError").style.display="block";
+
+}
+
+function submitVerification(){
+
+document.querySelector(".card").innerHTML = `
+
+<div class="logo">
+PS Ride
+</div>
+
+<h1>
+Verification Submitted Successfully
+</h1>
+
+<p>
+Your documents have been submitted for verification.
+Please wait 15 minutes to 4 hours for approval.
+</p>
+
+<button class="yes">
+OK
+</button>
+
+`;
+
+}
+  
 </script>
 
 
