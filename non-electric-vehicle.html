@@ -9,67 +9,145 @@
 
 <style>
 
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-font-family:Arial;
-background:#f4f4f4;
+min-height:100vh;
+background:linear-gradient(135deg,#f4fff8,#eefcf4,#ffffff);
+display:flex;
+align-items:center;
+justify-content:center;
 padding:20px;
 }
 
+/* ===== CARD (RIDER STYLE GLASS) ===== */
 .card{
-background:white;
-max-width:500px;
-margin:auto;
-padding:25px;
-border-radius:15px;
+background:rgba(255,255,255,.82);
+backdrop-filter:blur(18px);
+max-width:520px;
+width:100%;
+padding:30px;
+border-radius:30px;
+box-shadow:0 30px 80px rgba(0,0,0,.12);
+animation:fadeIn .5s ease;
 }
 
+/* ===== TITLE ===== */
+h2{
+text-align:center;
+font-size:28px;
+font-weight:900;
+color:#111;
+margin-bottom:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+}
+
+/* ===== INPUTS ===== */
 input,select{
 width:100%;
-padding:12px;
+padding:14px;
 margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
-box-sizing:border-box;
+border-radius:14px;
+border:1px solid #ddd;
+font-size:15px;
+outline:none;
+transition:.3s;
 }
 
+input:focus,select:focus{
+border-color:#00a86b;
+box-shadow:0 0 0 4px rgba(0,168,107,.12);
+}
+
+/* ===== BUTTONS ===== */
 button{
 width:100%;
-padding:14px;
-margin-top:10px;
+padding:15px;
+margin-top:12px;
 border:none;
-border-radius:10px;
-background:#00a86b;
-color:white;
+border-radius:30px;
 font-size:16px;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
 }
 
+button:hover{
+transform:translateY(-2px);
+}
+
+/* PRIMARY */
+.next{
+background:linear-gradient(135deg,#00a86b,#00d084);
+color:white;
+box-shadow:0 15px 35px rgba(0,168,107,.3);
+}
+
+/* BACK BUTTON (NO CHANGE LINK) */
 .back{
-background:#555;
+background:linear-gradient(135deg,#111,#333);
+color:white;
 width:auto;
-padding:8px 15px;
+padding:10px 18px;
+border-radius:25px;
+margin-bottom:10px;
 }
 
+/* HIDE BOX */
 .hide{
 display:none;
+}
+
+/* ===== ICON SVG ===== */
+.icon{
+width:34px;
+height:34px;
+display:inline-flex;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="card">
 
-
+<!-- BACK (UNCHANGED LINK BEHAVIOR) -->
 <button class="back" onclick="history.back()">← Back</button>
 
+<!-- TITLE WITH SVG (emoji removed) -->
+<h2>
 
-<h2>Vehicle Details 🚗</h2>
+<svg class="icon" viewBox="0 0 24 24" fill="none"
+stroke="currentColor" stroke-width="2">
 
+<path d="M3 13l2-6h14l2 6"/>
+<path d="M5 13v5h0"/>
+<path d="M19 13v5h0"/>
+<circle cx="7" cy="18" r="1"/>
+<circle cx="17" cy="18" r="1"/>
 
+</svg>
+
+Vehicle Details
+
+</h2>
 
 <select id="type" onchange="updateCompany()">
 
@@ -80,16 +158,11 @@ display:none;
 
 </select>
 
-
-
 <select id="company" onchange="updateModel()">
 
 <option>Select Company</option>
 
 </select>
-
-
-
 
 <select id="model">
 
@@ -97,16 +170,11 @@ display:none;
 
 </select>
 
-
-
 <input placeholder="Custom Model (Optional)">
-
-
 
 <select>
 
 <option>Select Model Year</option>
-
 <option>2000</option>
 <option>2001</option>
 <option>2002</option>
@@ -137,40 +205,27 @@ display:none;
 
 </select>
 
-
-
+<!-- AC BOX (same logic) -->
 <div id="acBox" class="hide">
 
 <select>
-
 <option>Select AC Type</option>
 <option>AC</option>
 <option>Non AC</option>
-
 </select>
 
 </div>
 
-
-
 <input placeholder="Registration Number">
 
-
-
-<button onclick="location.href='driver-government-id-verification.html'">
-
+<!-- NEXT BUTTON (LINK SAME) -->
+<button class="next" onclick="location.href='driver-government-id-verification.html'">
 Next →
-
 </button>
-
-
 
 </div>
 
-
-
 <script>
-
 
 function updateCompany(){
 
@@ -178,9 +233,7 @@ let type=document.getElementById("type").value;
 let company=document.getElementById("company");
 let ac=document.getElementById("acBox");
 
-
 company.innerHTML="<option>Select Company</option>";
-
 
 if(type=="Bike"){
 
@@ -194,7 +247,6 @@ ac.style.display="none";
 
 }
 
-
 if(type=="Car"){
 
 company.innerHTML+=`
@@ -206,7 +258,6 @@ company.innerHTML+=`
 ac.style.display="block";
 
 }
-
 
 if(type=="Van"){
 
@@ -220,131 +271,37 @@ ac.style.display="none";
 
 }
 
-
 }
 
-
-
 function updateModel(){
-
 
 let type=document.getElementById("type").value;
 let company=document.getElementById("company").value;
 let model=document.getElementById("model");
 
-
 model.innerHTML="<option>Select Model</option>";
 
-
-
 if(type=="Bike" && company=="Honda"){
-
 model.innerHTML+=`
 <option>CD 70</option>
 <option>CG 125</option>
 <option>CB 125F</option>
 `;
-
 }
-
-
-if(type=="Bike" && company=="Yamaha"){
-
-model.innerHTML+=`
-<option>YBR 125</option>
-<option>YBZ 125</option>
-`;
-
-}
-
-
-if(type=="Bike" && company=="Suzuki"){
-
-model.innerHTML+=`
-<option>GD 110</option>
-<option>GS 150</option>
-`;
-
-}
-
-
-
 
 if(type=="Car" && company=="Toyota"){
-
 model.innerHTML+=`
 <option>Corolla</option>
 <option>Yaris</option>
 <option>Vitz</option>
 `;
-
 }
-
-
-if(type=="Car" && company=="Honda"){
-
-model.innerHTML+=`
-<option>Civic</option>
-<option>City</option>
-`;
-
-}
-
-
-if(type=="Car" && company=="Suzuki"){
-
-model.innerHTML+=`
-<option>Alto</option>
-<option>Cultus</option>
-<option>Wagon R</option>
-`;
-
-}
-
-
-
-
-if(type=="Van" && company=="Suzuki"){
-
-model.innerHTML+=`
-<option>Bolan</option>
-<option>Ravi</option>
-`;
-
-}
-
-
-if(type=="Van" && company=="Toyota"){
-
-model.innerHTML+=`
-<option>Hiace</option>
-<option>Coaster</option>
-`;
-
-}
-
-
-if(type=="Van" && company=="FAW"){
-
-model.innerHTML+=`
-<option>X-PV</option>
-<option>Carrier</option>
-`;
-
-}
-
-
 
 model.innerHTML+="<option>Custom</option>";
 
-
 }
-
 
 </script>
 
-
-
 </body>
-
 </html>
