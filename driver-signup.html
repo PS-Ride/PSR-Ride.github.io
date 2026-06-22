@@ -3,308 +3,476 @@
 
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Driver Signup - PS Ride</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-font-family:Arial;
-background:#f4f4f4;
+
+min-height:100vh;
+
+background:
+linear-gradient(
+135deg,
+#f4fff8 0%,
+#eefcf4 40%,
+#ffffff 100%
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
 padding:20px;
+
+overflow-x:hidden;
+
 }
 
 .card{
-background:white;
-max-width:550px;
-margin:auto;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px #ccc;
-}
 
-h1,h3{
-text-align:center;
-}
-
-input,select{
 width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+max-width:550px;
+
+background:
+rgba(255,255,255,.82);
+
+backdrop-filter:blur(18px);
+
+border-radius:35px;
+
+padding:35px;
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.12);
+
+animation:fadeIn .6s ease;
+
+}
+
+.logo{
+
+font-size:34px;
+
+font-weight:900;
+
+text-align:center;
+
+color:#00a86b;
+
+margin-bottom:20px;
+
+}
+
+.icon{
+
+width:90px;
+height:90px;
+
+margin:auto;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+color:white;
+
+box-shadow:
+0 20px 50px rgba(0,168,107,.35);
+
+margin-bottom:20px;
+
+}
+
+.icon svg{
+
+width:52px;
+height:52px;
+
+}
+
+h1{
+
+text-align:center;
+
+font-size:30px;
+
+font-weight:900;
+
+color:#111;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+h3{
+
+margin-top:22px;
+margin-bottom:10px;
+
+color:#00a86b;
+
+font-size:20px;
+
+font-weight:800;
+
+}
+
+input,
+select{
+
+width:100%;
+
+padding:14px;
+
+margin-top:10px;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+background:white;
+
+}
+
+input:focus,
+select:focus{
+
+border-color:#00a86b;
+
+box-shadow:
+0 0 0 4px rgba(0,168,107,.10);
+
 }
 
 .phone{
+
 display:flex;
+
 gap:10px;
+
+margin-top:10px;
+
 }
 
 .code{
+
 width:30%;
+
 }
 
 .number{
+
 width:70%;
+
 }
 
 button{
+
 width:100%;
-padding:14px;
-background:#00a86b;
-color:white;
+
+padding:17px;
+
 border:none;
-border-radius:8px;
-font-size:16px;
+
+border-radius:35px;
+
+font-size:17px;
+
+font-weight:800;
+
+cursor:pointer;
+
+transition:.25s;
+
+margin-top:16px;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+.create-btn{
+
+background:
+linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
+
+color:white;
+
+box-shadow:
+0 15px 35px rgba(0,168,107,.35);
+
+}
+
+.back-btn{
+
+background:
+linear-gradient(
+135deg,
+#111,
+#333
+);
+
+color:white;
+
 }
 
 .hidden{
+
 display:none;
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="card">
 
-<h1>Driver Signup 🚘</h1>
+<div class="logo">
+PS Ride
+</div>
 
+<div class="icon">
 
-<input placeholder="First Name (as per Government ID)">
+<svg viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
 
-<input placeholder="Last Name (as per Government ID)">
+<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
+<path d="M9 12l2 2 4-4"/>
 
-
-
-<div class="phone">
-
-<input class="code" value="+92" readonly>
-
-<input class="number" placeholder="Number without 0">
+</svg>
 
 </div>
 
+<h1>Driver Registration</h1>
 
+<p class="subtitle">
+Create your Driver Account
+  </p>
+
+<h3>Personal Information</h3>
+
+<input placeholder="First Name (as per Government ID)">
+<input placeholder="Last Name (as per Government ID)">
+
+<div class="phone">
+  <input class="code" value="+92" readonly>
+  <input class="number" placeholder="Phone Number">
+</div>
 
 <input placeholder="Email Address">
-
-<input placeholder="CNIC Number without spaces">
-
-
+<input placeholder="CNIC Number (without spaces)">
 
 <select>
-
-<option>Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-
+  <option>Select Gender</option>
+  <option>Male</option>
+  <option>Female</option>
 </select>
-
-
-
 
 <select>
-
-<option>Select City</option>
-<option>Lahore</option>
-<option>Karachi</option>
-<option>Islamabad</option>
-<option>Rawalpindi</option>
-<option>Faisalabad</option>
-<option>Multan</option>
-<option>Peshawar</option>
-<option>Quetta</option>
-<option>Sialkot</option>
-<option>Gujranwala</option>
-<option>Gujrat</option>
-<option>Jhelum</option>
-<option>Sargodha</option>
-<option>Bahawalpur</option>
-<option>Hyderabad</option>
-<option>Sukkur</option>
-<option>Larkana</option>
-<option>Mardan</option>
-<option>Abbottabad</option>
-<option>Other</option>
-
+  <option>Select City</option>
+  <option>Lahore</option>
+  <option>Karachi</option>
+  <option>Islamabad</option>
+  <option>Rawalpindi</option>
+  <option>Faisalabad</option>
+  <option>Multan</option>
+  <option>Peshawar</option>
+  <option>Quetta</option>
 </select>
 
-
-
-<h3>License</h3>
-
+<h3>License Information</h3>
 
 <select id="license" onchange="licenseCheck()">
-
-<option value="">License Holder?</option>
-<option value="yes">Yes</option>
-<option value="no">No</option>
-
+  <option value="">Do you have License?</option>
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
 </select>
-
 
 <div id="licenseBox" class="hidden">
 
-<input placeholder="License Number">
+  <input placeholder="License Number">
 
 </div>
 
+<h3>Vehicle Details</h3>
 
-
-
-<h3>Vehicle</h3>
-
-
-<select id="type" onchange="vehicleChange()">
-
-<option>Select Vehicle Type</option>
-<option>Bike</option>
-<option>Car</option>
-
+<select id="vehicleType" onchange="vehicleChange()">
+  <option value="">Select Vehicle Type</option>
+  <option value="Bike">Bike</option>
+  <option value="Car">Car</option>
 </select>
-
-
 
 <select id="company">
-
-<option>Select Company</option>
-
+  <option>Select Company</option>
 </select>
-
-
 
 <select>
-
-<option>Select Model</option>
-
-<option>Honda CD 70</option>
-<option>Honda CG 125</option>
-<option>Honda CB 125F</option>
-
-<option>Toyota Corolla</option>
-<option>Toyota Yaris</option>
-<option>Honda Civic</option>
-<option>Honda City</option>
-
-<option>Suzuki Alto</option>
-<option>Suzuki Cultus</option>
-<option>Suzuki Wagon R</option>
-
-<option>Loader Van</option>
-
+  <option>Select Model</option>
+  <option>Honda CD 70</option>
+  <option>Honda CG 125</option>
+  <option>Honda Civic</option>
+  <option>Toyota Corolla</option>
+  <option>Suzuki Alto</option>
 </select>
-
-
 
 <select>
-
-<option>Select Model Year</option>
-
-<option>2000</option>
-<option>2001</option>
-<option>2002</option>
-<option>2003</option>
-<option>2004</option>
-<option>2005</option>
-<option>2006</option>
-<option>2007</option>
-<option>2008</option>
-<option>2009</option>
-<option>2010</option>
-<option>2011</option>
-<option>2012</option>
-<option>2013</option>
-<option>2014</option>
-<option>2015</option>
-<option>2016</option>
-<option>2017</option>
-<option>2018</option>
-<option>2019</option>
-<option>2020</option>
-<option>2021</option>
-<option>2022</option>
-<option>2023</option>
-<option>2024</option>
-<option>2025</option>
-<option>2026</option>
-
+  <option>Select Model Year</option>
+  <option>2020</option>
+  <option>2021</option>
+  <option>2022</option>
+  <option>2023</option>
+  <option>2024</option>
+  <option>2025</option>
 </select>
-
-
 
 <input placeholder="Vehicle Registration Number">
 
+ <h3>Upload Documents</h3>
 
+<div class="hidden" id="licenseUpload">
 
-<button onclick="history.back()" style="background:#555;">
-⬅ Back
-</button>
-
-
-<button onclick="alert('Driver Account Created Successfully (Demo)')">
-Create Driver Account
-</button>
-
+  <input type="file">
+  <input type="file">
 
 </div>
 
+<div class="hidden" id="bformUpload">
 
+  <input type="file">
+
+</div>
+
+<button class="create-btn" onclick="submitDriver()">
+Create Driver Account
+</button>
+
+<button class="back-btn" onclick="goBack()">
+⬅ Back
+</button>
+
+</div>
 
 <script>
 
+// License check
 function licenseCheck(){
 
-let value=document.getElementById("license").value;
+let val = document.getElementById("license").value;
+let box = document.getElementById("licenseBox");
 
-let box=document.getElementById("licenseBox");
-
-
-if(value=="yes"){
-box.style.display="block";
-}
-else{
-box.style.display="none";
+if(val === "yes"){
+box.style.display = "block";
+} else {
+box.style.display = "none";
 }
 
 }
 
-
-
+// Vehicle change
 function vehicleChange(){
 
-let type=document.getElementById("type").value;
+let type = document.getElementById("vehicleType").value;
+let company = document.getElementById("company");
 
-let company=document.getElementById("company");
+company.innerHTML = "";
 
-
-company.innerHTML="";
-
-if(type=="Bike"){
-
-company.innerHTML=
+if(type === "Bike"){
+company.innerHTML =
 "<option>Honda</option><option>Yamaha</option><option>Suzuki</option>";
-
 }
 
-
-if(type=="Car"){
-
-company.innerHTML=
+if(type === "Car"){
+company.innerHTML =
 "<option>Toyota</option><option>Honda</option><option>Suzuki</option>";
-
 }
 
 }
 
+// Submit driver
+function submitDriver(){
+
+alert("Driver Account Created Successfully (Demo)");
+
+setTimeout(()=>{
+location.reload();
+},1500);
+
+}
+
+// Back button safety (no broken UI)
+function goBack(){
+history.back();
+}
 
 </script>
 
-
 </body>
-  </html>
+</html>
