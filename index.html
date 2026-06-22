@@ -7,45 +7,21 @@
 
 <title>PS Ride</title>
 
-
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 
 body{
 
-background:
-linear-gradient(
-135deg,
-#f7fff9 0%,
-#eefcf4 40%,
-#ffffff 100%
-);
-
+background:#f6fbf8;
 color:#111;
 overflow-x:hidden;
-
-}
-
-
-body::before{
-
-content:"";
-position:fixed;
-top:-200px;
-right:-200px;
-width:500px;
-height:500px;
-background:#00a86b22;
-border-radius:50%;
-filter:blur(120px);
-z-index:-1;
 
 }
 
@@ -54,27 +30,33 @@ z-index:-1;
 .navbar{
 
 height:80px;
+padding:0 8%;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 8%;
+
 background:rgba(255,255,255,.85);
-backdrop-filter:blur(12px);
-border-bottom:1px solid #eee;
+backdrop-filter:blur(15px);
+
 position:sticky;
 top:0;
 z-index:1000;
 
+border-bottom:1px solid #eee;
+
 }
+
 
 
 .logo{
 
 font-size:30px;
-font-weight:800;
+font-weight:900;
 color:#00a86b;
 
 }
+
 
 
 .nav-links{
@@ -89,12 +71,15 @@ color:#555;
 
 .hero{
 
-min-height:88vh;
+min-height:90vh;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 padding:70px 8%;
-gap:40px;
+
+gap:50px;
 
 }
 
@@ -102,8 +87,9 @@ gap:40px;
 
 .hero-text{
 
-width:45%;
-animation:show 1s ease;
+width:48%;
+
+animation:fadeIn 1s ease;
 
 }
 
@@ -113,12 +99,13 @@ animation:show 1s ease;
 
 font-size:64px;
 line-height:1.05;
-font-weight:800;
+font-weight:900;
 
 }
 
 
-.hero-text h1 span{
+
+.hero-text span{
 
 color:#00a86b;
 
@@ -129,8 +116,21 @@ color:#00a86b;
 .hero-text p{
 
 margin:25px 0;
+
 font-size:20px;
 color:#666;
+
+line-height:1.6;
+
+}
+
+
+
+
+.action{
+
+display:flex;
+gap:15px;
 
 }
 
@@ -138,13 +138,16 @@ color:#666;
 
 .action button{
 
-padding:15px 30px;
+padding:16px 32px;
+
 border:none;
-font-weight:700;
-border-radius:30px;
-cursor:pointer;
+border-radius:35px;
+
 font-size:16px;
-margin-right:12px;
+font-weight:700;
+
+cursor:pointer;
+
 transition:.3s;
 
 }
@@ -153,16 +156,19 @@ transition:.3s;
 
 .action button:hover{
 
-transform:translateY(-6px) scale(1.04);
-box-shadow:0 15px 35px #00000030;
+transform:translateY(-5px);
+
+box-shadow:0 18px 40px #0003;
 
 }
+
 
 
 
 .book{
 
 background:linear-gradient(135deg,#00a86b,#00d084);
+
 color:white;
 
 }
@@ -172,16 +178,19 @@ color:white;
 .drive{
 
 background:#111;
+
 color:white;
 
 }
 
 
 
+
 .hero-img{
 
-width:40%;
-animation:carFloat 4s infinite alternate;
+width:45%;
+
+animation:float 4s infinite ease-in-out;
 
 }
 
@@ -190,40 +199,58 @@ animation:carFloat 4s infinite alternate;
 .hero-img img{
 
 width:100%;
+
 border-radius:35px;
-box-shadow:0 25px 60px #00000035;
-transition:.5s;
+
+box-shadow:
+0 30px 70px #0003;
 
 }
+
+
 
 
 .hero-img img:hover{
 
-transform:scale(1.08);
+transform:scale(1.04);
 
-}@keyframes show{
+}
+
+
+
+
+@keyframes fadeIn{
 
 from{
+
 opacity:0;
 transform:translateX(-50px);
+
 }
 
 to{
+
 opacity:1;
 transform:translateX(0);
-}
 
 }
 
+}
 
-@keyframes carFloat{
 
-from{
+
+@keyframes float{
+
+0%,100%{
+
 transform:translateY(0);
+
 }
 
-to{
-transform:translateY(-12px) scale(1.03);
+50%{
+
+transform:translateY(-15px);
+
 }
 
 }
@@ -263,9 +290,7 @@ display:none;
 }
 
 
-
 </style>
-
 
 </head>
 
@@ -273,12 +298,13 @@ display:none;
 <body>
 
 
-
 <div class="navbar">
+
 
 <div class="logo">
 PS Ride
 </div>
+
 
 
 <div class="nav-links">
@@ -290,8 +316,8 @@ PS Ride
 
 </div>
 
-</div>
 
+</div>
 
 
 
@@ -303,9 +329,9 @@ PS Ride
 
 <h1>
 
-Pakistan's Smartest
+Ride Smarter With
 
-<span>Ride Network</span>
+<span>PS Ride</span>
 
 </h1>
 
@@ -313,33 +339,41 @@ Pakistan's Smartest
 
 <p>
 
-Book rides, travel safely and earn as a driver across Pakistan.
+Fast, safe and affordable rides whenever you need.
 
 </p>
+
 
 
 
 <div class="action">
 
 
-<button class="book">
+<button class="book"
+onclick="location.href='rider-signup.html'">
 
 Book Ride
 
 </button>
 
 
-<button class="drive">
+
+
+<button class="drive"
+onclick="location.href='driver-info.html'">
 
 Drive With Us
 
 </button>
 
 
+
 </div>
 
 
+
 </div>
+
 
 
 
@@ -347,7 +381,109 @@ Drive With Us
 <div class="hero-img">
 
 
-<img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200">
+
+
+</div>
+
+
+  </section>
+
+  <section class="services">
+
+
+<div class="service-card">
+
+
+<div class="icon">
+
+<svg viewBox="0 0 24 24">
+
+<path d="M5 16l1-5h12l1 5M7 16v2m10-2v2M6 11l1-4h10l1 4"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+
+Easy Booking
+
+</h3>
+
+
+<p>
+
+Book your ride in simple steps.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="service-card">
+
+
+<div class="icon">
+
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+
+Safe Travel
+
+</h3>
+
+
+<p>
+
+Secure and comfortable rides.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="service-card">
+
+
+<div class="icon">
+
+<svg viewBox="0 0 24 24">
+
+<path d="M4 18v-7h16v7M7 18v2m10-2v2M6 11l2-5h8l2 5"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+
+Driver Partner
+
+</h3>
+
+
+<p>
+
+Earn with PS Ride.
+
+</p>
 
 
 </div>
@@ -355,101 +491,6 @@ Drive With Us
 
 </section>
 
-
-
-
-
-<section class="services">
-
-
-<div class="service-card">
-
-
-<div class="icon">
-
-🚗
-
-</div>
-
-
-<h3>
-
-Quick Booking
-
-</h3>
-
-
-<p>
-
-Book your ride instantly with PS Ride.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="service-card">
-
-
-<div class="icon">
-
-🛡
-
-</div>
-
-
-<h3>
-
-Safe Journey
-
-</h3>
-
-
-<p>
-
-Trusted drivers and secure travel.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="service-card">
-
-
-<div class="icon">
-
-➤
-
-</div>
-
-
-<h3>
-
-Earn More
-
-</h3>
-
-
-<p>
-
-Drive with PS Ride and grow.
-
-</p>
-
-
-</div>
-
-
-</section>
 
 
 
@@ -459,13 +500,15 @@ Drive with PS Ride and grow.
 
 .services{
 
-
 display:flex;
-justify-content:center;
-gap:30px;
-padding:90px 8%;
-flex-wrap:wrap;
 
+justify-content:center;
+
+gap:30px;
+
+padding:90px 8%;
+
+flex-wrap:wrap;
 
 }
 
@@ -473,21 +516,20 @@ flex-wrap:wrap;
 
 .service-card{
 
-
 width:310px;
-
-padding:40px 30px;
 
 background:white;
 
-border-radius:28px;
+padding:40px 30px;
+
+border-radius:30px;
 
 text-align:center;
 
-box-shadow:0 20px 60px #00000018;
+box-shadow:
+0 20px 60px rgba(0,0,0,.12);
 
 transition:.3s;
-
 
 }
 
@@ -495,25 +537,21 @@ transition:.3s;
 
 .service-card:hover{
 
-
 transform:translateY(-12px);
-
 
 }
 
 
 
-
 .icon{
-
 
 width:85px;
 
 height:85px;
 
-margin:0 auto 20px;
+margin:0 auto 25px;
 
-border-radius:25px;
+border-radius:28px;
 
 background:linear-gradient(135deg,#00a86b,#00d084);
 
@@ -523,13 +561,23 @@ align-items:center;
 
 justify-content:center;
 
-font-size:38px;
-
-box-shadow:0 15px 40px #00a86b55;
-
-
 }
 
+
+
+.icon svg{
+
+width:42px;
+
+height:42px;
+
+fill:none;
+
+stroke:white;
+
+stroke-width:2;
+
+}
 
 
 
@@ -543,12 +591,11 @@ margin-bottom:12px;
 
 
 
-
 .service-card p{
 
 color:#666;
 
-line-height:1.5;
+line-height:1.6;
 
 }
 
@@ -557,11 +604,13 @@ line-height:1.5;
 
 .footer{
 
+margin-top:40px;
+
 background:#111;
 
 color:white;
 
-padding:35px;
+padding:45px 20px;
 
 text-align:center;
 
@@ -569,9 +618,21 @@ text-align:center;
 
 
 
-.footer span{
+.footer h2{
 
-color:#00a86b;
+color:#00d084;
+
+margin-bottom:10px;
+
+}
+
+
+
+.footer p{
+
+color:#ccc;
+
+margin-top:8px;
 
 }
 
@@ -608,7 +669,6 @@ Customer Care Available 24/7
 
 
 </div>
-
 
 
 
