@@ -9,46 +9,187 @@
 
 <style>
 
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* PREMIUM ANIMATED BACKGROUND */
 body{
-font-family:Arial;
-background:#f4f4f4;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 padding:20px;
+
+background: linear-gradient(-45deg,#0f172a,#064e3b,#0f766e,#1e293b);
+background-size:400% 400%;
+animation:bgMove 10s ease infinite;
+overflow-x:hidden;
 }
 
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* FLOATING LIGHT GLOW */
+body::before{
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(0,255,170,.15);
+filter:blur(120px);
+top:-100px;
+left:-100px;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(0,140,255,.15);
+filter:blur(120px);
+bottom:-120px;
+right:-120px;
+}
+
+/* CARD */
 .card{
-background:white;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
 max-width:500px;
+width:100%;
+
 margin:auto;
-padding:20px;
-border-radius:15px;
+padding:25px;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.6),
+inset 0 0 15px rgba(255,255,255,.05);
+
+position:relative;
+z-index:1;
+
+animation:floatCard 6s ease-in-out infinite;
 }
 
+@keyframes floatCard{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+}
+
+/* TITLE */
+h2{
+text-align:center;
+color:#fff;
+margin-bottom:15px;
+font-size:26px;
+text-shadow:0 0 15px rgba(0,255,179,.4);
+}
+
+/* INPUTS */
 input,select{
 width:100%;
-padding:12px;
+padding:13px;
 margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
-box-sizing:border-box;
+
+border-radius:12px;
+
+border:1px solid rgba(255,255,255,.15);
+
+background:rgba(255,255,255,.06);
+color:#fff;
+
+outline:none;
+
+transition:.3s;
 }
 
+input::placeholder{
+color:rgba(255,255,255,.5);
+}
+
+input:focus,select:focus{
+border-color:#00ffb3;
+box-shadow:0 0 0 3px rgba(0,255,179,.2);
+transform:translateY(-2px);
+}
+
+/* BUTTON */
 button{
 width:100%;
 padding:14px;
+
 border:none;
-border-radius:10px;
-background:#00a86b;
-color:white;
+border-radius:14px;
+
 font-size:16px;
+font-weight:bold;
+
+cursor:pointer;
+transition:.3s;
+
 margin-top:10px;
+
+position:relative;
+overflow:hidden;
 }
 
+/* NEXT BUTTON PREMIUM */
+button:not(.back){
+background:linear-gradient(135deg,#00ffb3,#00aaff);
+color:#001018;
+
+box-shadow:0 10px 30px rgba(0,255,179,.3);
+}
+
+/* SHINE EFFECT */
+button:not(.back)::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.25);
+transform:skewX(-25deg);
+transition:.5s;
+}
+
+button:not(.back):hover::before{
+left:120%;
+}
+
+/* BACK BUTTON */
 .back{
-background:#555;
+background:rgba(255,255,255,.08);
+color:#fff;
+border:1px solid rgba(255,255,255,.15);
 width:auto;
-padding:8px 15px;
+padding:8px 14px;
+border-radius:10px;
+margin-bottom:10px;
 }
 
+.back:hover{
+transform:translateY(-2px);
+box-shadow:0 0 15px rgba(0,255,179,.2);
+}
+
+/* HIDDEN */
 .hidden{
 display:none;
 }
@@ -57,52 +198,29 @@ display:none;
 
 </head>
 
-
 <body>
-
 
 <div class="card">
 
-
 <button class="back" onclick="history.back()">← Back</button>
-
 
 <h2>Driver Signup 🚘</h2>
 
-
 <input placeholder="First Name (as per Government ID)">
-
-
 <input placeholder="Last Name (as per Government ID)">
 
-
-<input 
-type="tel"
-placeholder="+92 3XXXXXXXXX">
-
-
+<input type="tel" placeholder="+92 3XXXXXXXXX">
 <input placeholder="Email Address">
-
-
 <input placeholder="CNIC Number without spaces">
 
-
-
 <select>
-
 <option>Select Gender</option>
 <option>Male</option>
 <option>Female</option>
-
 </select>
 
-
-
-
 <select>
-
 <option>Select City</option>
-
 <option>Lahore</option>
 <option>Karachi</option>
 <option>Islamabad</option>
@@ -157,78 +275,39 @@ placeholder="+92 3XXXXXXXXX">
 <option>Muzaffarabad</option>
 <option>Mirpur</option>
 <option>Rawalakot</option>
-
 </select>
-
-
-
 
 <select id="license" onchange="checkLicense()">
-
 <option>License Holder?</option>
-
 <option value="yes">Yes</option>
-
 <option value="no">No</option>
-
 </select>
 
-
-
 <div id="licenseBox" class="hidden">
-
-
 <input placeholder="License Number">
-
-
 </div>
-
-
-
 
 <button onclick="location.href='vehicle-choice.html'">
-
 Next →
-
 </button>
 
-
-
-
 </div>
-
-
-
 
 <script>
 
-
 function checkLicense(){
-
 let value=document.getElementById("license").value;
-
 let box=document.getElementById("licenseBox");
 
-
 if(value=="yes"){
-
 box.style.display="block";
-
 }
-
 else{
-
 box.style.display="none";
-
 }
-
 }
-
 
 </script>
 
-
-
 </body>
-
-  </html>
+</html>
