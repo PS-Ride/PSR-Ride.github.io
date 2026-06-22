@@ -236,6 +236,26 @@ width:45px;
 height:45px;
 
   }
+  .success-icon.show{
+
+animation:pop .5s ease;
+
+}
+
+
+@keyframes pop{
+
+0%{
+transform:scale(.5);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
 
 .success{
 
@@ -468,9 +488,11 @@ document.getElementById("form").style.display="none";
 
 document.getElementById("success").style.display="block";
 
+document.querySelector(".success-icon").classList.add("show");
+
 window.scrollTo(0,0);
 
-}  
+}
 
 
 </script>
