@@ -430,11 +430,11 @@ Please wait 15 minutes to 4 hours for approval.
 Sorry for the wait.
 </p>
 
-<button class="yes" onclick="history.back()">
+<button class="yes" onclick="location.reload()">
 OK
 </button>
 
-<button class="no" onclick="history.back()">
+<button class="no" onclick="location.reload()">
 
 ⬅ Back
 
@@ -464,6 +464,16 @@ document.getElementById("error").style.display="none";
 
 
 function noID(){
+
+document.querySelector("h1").style.display="none";
+
+document.querySelector(".icon").style.display="none";
+
+document.querySelector("p").style.display="none";
+
+document.querySelector(".yes").style.display="none";
+
+document.querySelector(".no").style.display="none";
 
 document.getElementById("upload").style.display="none";
 
