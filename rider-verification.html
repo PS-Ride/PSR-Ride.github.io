@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rider Verification - PS Ride</title>
-
+<title>PS Ride Verification</title>
 
 <style>
 
@@ -17,555 +15,314 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-
 body{
-
 min-height:100vh;
-
-background:
-linear-gradient(
-135deg,
-#f7fff9,
-#eefcf4,
-#ffffff
-);
-
+background:linear-gradient(135deg,#f7fff9,#eefcf4,#ffffff);
 display:flex;
-align-items:center;
+flex-direction:column;
 justify-content:center;
-
-padding:25px;
-
+align-items:center;
+padding:20px;
 }
-
-
 
 .card{
-
 width:100%;
-max-width:520px;
-
-background:rgba(255,255,255,.75);
-
+max-width:500px;
+background:rgba(255,255,255,.78);
 backdrop-filter:blur(18px);
-
-padding:35px;
-
 border-radius:35px;
-
-box-shadow:0 30px 80px rgba(0,0,0,.15);
-
+padding:35px;
+box-shadow:0 30px 80px rgba(0,0,0,.12);
 text-align:center;
-
-animation:show .6s ease;
-
+animation:fade .5s ease;
 }
-
-
 
 .logo{
-
 font-size:34px;
-
 font-weight:900;
-
 color:#00a86b;
-
 margin-bottom:20px;
-
 }
 
-
-
 .icon{
-
-width:75px;
-height:75px;
-
-margin:5px auto 15px;
-
-border-radius:25px;
-
+width:85px;
+height:85px;
+margin:auto;
+border-radius:28px;
 background:linear-gradient(135deg,#00a86b,#00d084);
-
-color:white;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
-box-shadow:0 20px 50px #00a86b45;
-animation:iconPop .6s ease;
-  
+color:white;
+box-shadow:0 20px 50px rgba(0,168,107,.35);
 }
-
-
 
 .icon svg{
-
-width:45px;
-height:45px;
-
+width:50px;
+height:50px;
 }
-
-
 
 h1{
-
 margin:20px 0;
-
+font-size:48px;
+font-weight:900;
 }
 
-
-
-p{
-
-margin-bottom:15px;
-
+.question{
+font-size:18px;
+font-weight:700;
 color:#555;
-
-}
-
-.typing-text{
-
-height:auto;
-
-min-height:40px;
-
-overflow:visible;
-
-margin-top:15px;
-
-line-height:22px;
-
-position:relative;
-z-index:2;
-  
+margin-bottom:20px;
 }
 
 button{
-
 width:100%;
-
-padding:16px;
-
-letter-spacing:.3px;
-  
-margin-top:14px;
-
+padding:17px;
 border:none;
-
-border-radius:30px;
-
+border-radius:35px;
+font-size:18px;
 font-weight:800;
-
-font-size:16px;
-
 cursor:pointer;
-
+margin-top:14px;
 transition:.3s;
-
 }
-
 
 button:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 18px 40px #00a86b45;
-
+transform:translateY(-2px);
 }
-
-
 
 .yes{
-
-background:linear-gradient(
-135deg,
-#00a86b,
-#00d084
-);
-
+background:linear-gradient(135deg,#00a86b,#00d084);
 color:white;
-
-box-shadow:0 15px 35px #00a86b45;
-
+box-shadow:0 15px 35px rgba(0,168,107,.35);
 }
-
-
 
 .no{
-
-background:linear-gradient(
-135deg,
-#111,
-#333
-);
-
+background:linear-gradient(135deg,#111,#333);
 color:white;
-
-box-shadow:0 15px 35px rgba(0,0,0,.25);
-border:1px solid rgba(255,255,255,.15);
-
-transition:.3s;
-  
 }
 
+.back-btn{
+margin-top:15px;
+background:#f3f3f3;
+color:#333;
+}
 
-
-.upload{
-
+.upload,
+#bform,
+#verifySuccess,
+#errorBox{
 display:none;
-
-margin-top:20px;
-
 }
 
 .upload h3{
-
-color:#00a86b;
 margin-bottom:15px;
-
-}
-
-.upload input{
-
-background:white;
-
+color:#00a86b;
 }
 
 input{
-
 width:100%;
-
-padding:13px;
-
-margin:8px 0;
-
-border-radius:14px;
-
-border:1px solid #ddd;
-
-}
-
-
-
-.error{
-
-display:none;
-
-margin-top:20px;
-
-color:#e60000;
-
-font-weight:bold;
-
-}
-
-
-
-@keyframes show{
-
-from{
-
-opacity:0;
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes iconPop{
-
-0%{
-transform:scale(.7);
-opacity:0;
-}
-
-100%{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-.error{
-
-display:none;
-
-margin-top:20px;
-
-color:#e60000;
-
-font-weight:bold;
-
-padding:15px;
-
+padding:14px;
 border-radius:15px;
+border:1px solid #ddd;
+margin-top:10px;
+}
 
+#errorBox{
 background:#fff0f0;
-
-}  
+color:#d60000;
+padding:15px;
+border-radius:15px;
+font-weight:bold;
+margin-top:20px;
+}
 
 .outside-note{
-
-width:100%;
-
-max-width:520px;
-
+max-width:500px;
+margin-top:18px;
 text-align:center;
-
-margin-top:15px;
-
+font-size:15px;
+font-weight:600;
+color:#555;
+line-height:24px;
+min-height:50px;
 }
-  
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="card">
 
-
-<div class="logo">
-PS Ride
-</div>
-
+<div class="logo">PS Ride</div>
 
 <div class="icon">
-
-<svg viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
-
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
 <path d="M9 12l2 2 4-4"/>
 </svg>
-
 </div>
 
+<div id="mainSection">
 
+<h1>Identity Verification</h1>
 
-<h1>
-Identity Verification
-</h1>
-
-
-<p style="
-font-weight:600;
-color:#444;
-">
+<p class="question">
 Do you have your ID Card?
 </p>
 
-
-
-<button class="yes" onclick="yesID()">
-YES
-</button>
-
-
-<button class="no" onclick="noID()">
-NO
-</button>
-
-<div class="upload" id="upload">
-
-
-<h3>
-Upload ID Card
-</h3>
-
-
-<input type="file">
-
-<input type="file">
-
-
-<button class="yes" onclick="submitVerification()">
-
-Submit Verification
-
-</button>
-
+<button class="yes" onclick="showIDUpload()">YES</button>
+<button class="no" onclick="showBform()">NO</button>
 
 </div>
 
+<div class="upload" id="idUpload">
 
+<h3>Upload ID Card</h3>
 
+<input type="file">
+<input type="file">
 
-<div class="bform" id="bform" style="display:none;">
+<button class="yes" onclick="submitVerification()">
+Submit Verification
+</button>
 
-<p>
+<button class="back-btn" onclick="backToMain()">
+⬅ Back
+</button>
+
+</div>
+
+<div id="bform">
+
+<p class="question">
 Do you have B-Form?
 </p>
 
-<button class="yes" onclick="yesBform()">
+<button class="yes" onclick="showBformUpload()">
 YES
 </button>
 
-<button class="no" onclick="noBform()">
+<button class="no" onclick="showError()">
 NO
 </button>
 
+<button class="back-btn" onclick="backToMain()">
+⬅ Back
+</button>
 
-<div class="upload" id="bformUpload" style="display:none;">
+<div class="upload" id="bformUpload">
 
-<h3>
-Upload B-Form
-</h3>
+<h3>Upload B-Form</h3>
 
 <input type="file">
 
-
 <button class="yes" onclick="submitVerification()">
-
 Submit Verification
-
 </button>
 
 </div>
 
-
-<div class="error" id="bformError" style="display:none;">
-
-Sorry, you cannot continue without verification.
-Please complete verification to use PS Ride.
-
 </div>
 
-<div id="verifySuccess" style="display:none;">
+<div id="errorBox">
+Sorry, you cannot continue without verification.
+</div>
 
-<h1 style="color:#00a86b;">
+<div id="verifySuccess">
+
+<h1 style="color:#00a86b;font-size:38px;">
 Verification Submitted Successfully
 </h1>
 
-<p>
+<p style="margin-top:15px;color:#555;">
 Your documents have been submitted for verification.
 </p>
 
-<p>
+<p style="margin-top:10px;color:#555;">
 Please wait 15 minutes to 4 hours for approval.
-Sorry for the wait.
 </p>
 
 <button class="yes" onclick="location.reload()">
-ok
+OK
 </button>
 
-<button class="no" onclick="location.reload()">
-
+<button class="back-btn" onclick="location.reload()">
 ⬅ Back
-
 </button>
-  
+
 </div>
-  
+
 </div>
-  
+
+<div class="outside-note">
+<span id="typingText"></span>
 </div>
-  
+
 <script>
 
-
-function yesID(){
-
-document.getElementById("upload").style.display="block";
-
-document.getElementById("error").style.display="none";
-
+function showIDUpload(){
+document.getElementById("mainSection").style.display="none";
+document.getElementById("idUpload").style.display="block";
 }
 
-
-
-function noID(){
-
-document.querySelector("h1").style.display="none";
-
-document.querySelector(".icon").style.display="none";
-
-document.querySelector("p").style.display="none";
-
-document.querySelector(".yes").style.display="none";
-
-document.querySelector(".no").style.display="none";
-
-document.getElementById("upload").style.display="none";
-
+function showBform(){
+document.getElementById("mainSection").style.display="none";
 document.getElementById("bform").style.display="block";
-
 }
 
-function yesBform(){
-
+function showBformUpload(){
 document.getElementById("bformUpload").style.display="block";
-
-document.getElementById("bformError").style.display="none";
-
+document.getElementById("errorBox").style.display="none";
 }
 
+function showError(){
+document.getElementById("errorBox").style.display="block";
+}
 
-function noBform(){
-
+function backToMain(){
+document.getElementById("mainSection").style.display="block";
+document.getElementById("idUpload").style.display="none";
+document.getElementById("bform").style.display="none";
 document.getElementById("bformUpload").style.display="none";
-
-document.getElementById("bformError").style.display="block";
-
+document.getElementById("errorBox").style.display="none";
 }
 
 function submitVerification(){
-
-document.getElementById("upload").style.display="none";
-
-document.getElementById("bformUpload").style.display="none";
-
+document.getElementById("idUpload").style.display="none";
 document.getElementById("bform").style.display="none";
-
+document.getElementById("bformUpload").style.display="none";
 document.getElementById("verifySuccess").style.display="block";
-
-}  
-
-const text =
-
-"If you don't have an ID Card, click NO to continue with B-Form verification.";
-
-let i = 0;
-
-function typing(){
-
-if(i < text.length){
-
-document.getElementById("typingText").innerHTML += text.charAt(i);
-
-i++;
-
-setTimeout(typing,50);
-
 }
 
+const text =
+"If you don't have an ID Card, click NO to continue with B-Form verification.";
+
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typingText").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,40);
+}
 }
 
 typing();
-  
+
 </script>
 
-<div class="outside-note">
-<p class="typing-text" id="typingText"></p>
-</div>
-
 </body>
-
   </html>
