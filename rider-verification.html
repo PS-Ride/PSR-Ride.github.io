@@ -95,7 +95,8 @@ align-items:center;
 justify-content:center;
 
 box-shadow:0 20px 50px #00a86b45;
-
+animation:iconPop .6s ease;
+  
 }
 
 
@@ -131,7 +132,7 @@ button{
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 margin-top:12px;
 
@@ -139,11 +140,22 @@ border:none;
 
 border-radius:30px;
 
-font-weight:700;
+font-weight:800;
 
 font-size:16px;
 
 cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 40px #00a86b45;
 
 }
 
@@ -151,9 +163,15 @@ cursor:pointer;
 
 .yes{
 
-background:linear-gradient(135deg,#00a86b,#00d084);
+background:linear-gradient(
+135deg,
+#00a86b,
+#00d084
+);
 
 color:white;
+
+box-shadow:0 15px 35px #00a86b45;
 
 }
 
@@ -161,9 +179,15 @@ color:white;
 
 .no{
 
-background:#111;
+background:linear-gradient(
+135deg,
+#111,
+#333
+);
 
 color:white;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 
 }
 
@@ -177,7 +201,18 @@ margin-top:20px;
 
 }
 
+.upload h3{
 
+color:#00a86b;
+margin-bottom:15px;
+
+}
+
+.upload input{
+
+background:white;
+
+}
 
 input{
 
@@ -227,7 +262,38 @@ transform:translateY(0);
 
 }
 
+@keyframes iconPop{
 
+0%{
+transform:scale(.7);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.error{
+
+display:none;
+
+margin-top:20px;
+
+color:#e60000;
+
+font-weight:bold;
+
+padding:15px;
+
+border-radius:15px;
+
+background:#fff0f0;
+
+}  
+  
 </style>
 
 </head>
@@ -349,7 +415,33 @@ Please complete verification to use PS Ride.
 
 </div>
 
+<div id="verifySuccess" style="display:none;">
 
+<h1 style="color:#00a86b;">
+Verification Submitted Successfully
+</h1>
+
+<p>
+Your documents have been submitted for verification.
+</p>
+
+<p>
+Please wait 15 minutes to 4 hours for approval.
+Sorry for the wait.
+</p>
+
+<button class="yes" onclick="history.back()">
+OK
+</button>
+
+<button class="no" onclick="history.back()">
+
+⬅ Back
+
+</button>
+  
+</div>
+  
 </div>
 
 
@@ -398,28 +490,15 @@ document.getElementById("bformError").style.display="block";
 
 function submitVerification(){
 
-document.querySelector(".card").innerHTML = `
+document.getElementById("upload").style.display="none";
 
-<div class="logo">
-PS Ride
-</div>
+document.getElementById("bformUpload").style.display="none";
 
-<h1>
-Verification Submitted Successfully
-</h1>
+document.getElementById("bform").style.display="none";
 
-<p>
-Your documents have been submitted for verification.
-Please wait 15 minutes to 4 hours for approval.
-</p>
+document.getElementById("verifySuccess").style.display="block";
 
-<button class="yes">
-OK
-</button>
-
-`;
-
-}
+}  
   
 </script>
 
