@@ -223,7 +223,25 @@ height:45px;
 
 }
 
+.success-icon svg{
+animation:checkBounce .6s ease;
+}
 
+@keyframes checkBounce{
+
+0%{
+transform:scale(.5);
+}
+
+50%{
+transform:scale(1.25);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
 
 @keyframes show{
 
@@ -345,7 +363,12 @@ Create Rider Account
 
 </button>
 
+<button class="back" onclick="history.back()">
 
+⬅ Back
+
+  </button>
+  
 </div>
 
 <div class="success" id="success">
