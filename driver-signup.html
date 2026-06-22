@@ -1,13 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Driver Signup - PS Ride</title>
-
 <style>
+
+/* =========================
+   PS RIDE PREMIUM UI KIT
+========================= */
+
+:root{
+
+/* PRIMARY COLORS */
+--primary:#00a86b;
+--primary2:#00d084;
+
+/* DARK TEXT */
+--text:#111;
+--text2:#555;
+
+/* BACKGROUND */
+--bg1:#f4fff8;
+--bg2:#eefcf4;
+
+/* CARD */
+--card:rgba(255,255,255,.82);
+
+}
 
 /* RESET */
 *{
@@ -17,25 +31,26 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-/* BACKGROUND PREMIUM */
+/* PAGE BACKGROUND (UNIFIED) */
 body{
 min-height:100vh;
-background:linear-gradient(135deg,#f4fff8,#eefcf4,#fff);
+background:linear-gradient(135deg,var(--bg1),var(--bg2),#fff);
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
 }
 
-/* GLASS CARD */
+/* GLASS CARD SYSTEM */
 .card{
 width:100%;
 max-width:550px;
-background:rgba(255,255,255,.82);
+background:var(--card);
 backdrop-filter:blur(18px);
 border-radius:35px;
 padding:35px;
 box-shadow:0 25px 70px rgba(0,0,0,.12);
+animation:fadeIn .5s ease;
 }
 
 /* LOGO */
@@ -43,47 +58,48 @@ box-shadow:0 25px 70px rgba(0,0,0,.12);
 text-align:center;
 font-size:34px;
 font-weight:900;
-color:#00a86b;
+color:var(--primary);
 margin-bottom:15px;
+letter-spacing:.5px;
 }
 
-/* ICON BOX (SVG REPLACEMENT) */
+/* ICON SYSTEM (NO EMOJI EVER) */
 .icon{
 width:90px;
 height:90px;
 margin:auto;
 border-radius:28px;
-background:linear-gradient(135deg,#00a86b,#00d084);
+background:linear-gradient(135deg,var(--primary),var(--primary2));
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 box-shadow:0 20px 50px rgba(0,168,107,.35);
 }
 
-/* SVG SIZE */
+/* SVG STANDARD */
 .icon svg{
 width:50px;
 height:50px;
 color:white;
 }
 
-/* TITLES */
+/* HEADINGS */
 h1{
 text-align:center;
 font-size:30px;
 font-weight:900;
-margin:15px 0;
-color:#111;
+color:var(--text);
+margin-bottom:10px;
 }
 
 h3{
 margin-top:20px;
-color:#00a86b;
+color:var(--primary);
 font-size:18px;
 font-weight:800;
 }
 
-/* INPUTS */
+/* INPUT SYSTEM */
 input,select{
 width:100%;
 padding:14px;
@@ -91,25 +107,16 @@ margin-top:10px;
 border-radius:15px;
 border:1px solid #ddd;
 outline:none;
-transition:.3s;
+transition:.25s;
 background:#fff;
 }
 
 input:focus,select:focus{
-border-color:#00a86b;
+border-color:var(--primary);
 box-shadow:0 0 0 4px rgba(0,168,107,.10);
 }
 
-/* PHONE BOX */
-.phone{
-display:flex;
-gap:10px;
-}
-
-.code{width:30%;}
-.number{width:70%;}
-
-/* BUTTONS */
+/* BUTTON SYSTEM */
 button{
 width:100%;
 padding:16px;
@@ -118,162 +125,42 @@ border-radius:30px;
 font-size:16px;
 font-weight:800;
 cursor:pointer;
-transition:.25s;
+transition:.2s;
 margin-top:12px;
 }
 
-/* YES BUTTON */
+button:hover{
+transform:translateY(-2px);
+}
+
+/* PRIMARY BUTTON */
 .yes{
-background:linear-gradient(135deg,#00a86b,#00d084);
+background:linear-gradient(135deg,var(--primary),var(--primary2));
 color:white;
 box-shadow:0 15px 35px rgba(0,168,107,.3);
 }
 
-/* NO BUTTON (FIXED AS YOU ASKED) */
+/* SECONDARY BUTTON (NO) */
 .no{
 background:#000;
-color:white;
+color:#fff;
 }
 
-/* BACK BUTTON ONLY BOTTOM */
+/* BACK BUTTON (ONLY BOTTOM RULE) */
 .back-btn{
 background:#111;
-color:white;
+color:#fff;
 }
 
-/* HIDDEN BLOCKS */
+/* HIDDEN SYSTEM */
 .hidden{
 display:none;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="card">
-
-<div class="logo">PS Ride</div>
-
-<div class="icon">
-
-<!-- SVG (emoji removed) -->
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
-<path d="M9 12l2 2 4-4"/>
-</svg>
-
-</div>
-
-<h1>Driver Signup</h1>
-
-<!-- PERSONAL INFO -->
-<h3>Personal Information</h3>
-
-<input placeholder="First Name">
-<input placeholder="Last Name">
-
-<div class="phone">
-<input class="code" value="+92" readonly>
-<input class="number" placeholder="Phone Number">
-</div>
-
-<input placeholder="Email Address">
-<input placeholder="CNIC Number">
-
-<select>
-<option>Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-</select>
-
-<select>
-<option>Select City</option>
-<option>Lahore</option>
-<option>Karachi</option>
-<option>Islamabad</option>
-</select>
-
-<!-- LICENSE -->
-<h3>License</h3>
-
-<select id="license" onchange="licenseCheck()">
-<option value="">License Holder?</option>
-<option value="yes">Yes</option>
-<option value="no">No</option>
-</select>
-
-<div id="licenseBox" class="hidden">
-<input placeholder="License Number">
-</div>
-
-<!-- VEHICLE -->
-<h3>Vehicle Details</h3>
-
-<select id="vehicleType" onchange="vehicleChange()">
-<option>Select Vehicle</option>
-<option>Bike</option>
-<option>Car</option>
-</select>
-
-<select id="company">
-<option>Select Company</option>
-</select>
-
-<select>
-<option>Select Model</option>
-<option>Honda CD 70</option>
-<option>Toyota Corolla</option>
-</select>
-
-<!-- BACK BUTTON ONLY ON BOTTOM (AS YOU SAID) -->
-<button class="yes" onclick="submitDriver()">
-Create Driver Account
-</button>
-
-<button class="back-btn" onclick="goBack()">
-⬅ Back
-</button>
-
-</div>
-
-<script>
-
-/* LICENSE */
-function licenseCheck(){
-let val=document.getElementById("license").value;
-document.getElementById("licenseBox").style.display =
-(val==="yes") ? "block" : "none";
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* VEHICLE */
-function vehicleChange(){
-let type=document.getElementById("vehicleType").value;
-let company=document.getElementById("company");
-
-company.innerHTML="<option>Select Company</option>";
-
-if(type==="Bike"){
-company.innerHTML+="<option>Honda</option><option>Yamaha</option>";
-}
-
-if(type==="Car"){
-company.innerHTML+="<option>Toyota</option><option>Suzuki</option>";
-}
-}
-
-/* SUBMIT (NO LINK BREAK) */
-function submitDriver(){
-alert("Driver Account Created Successfully");
-}
-
-/* BACK SAFE */
-function goBack(){
-history.back();
-}
-
-</script>
-
-</body>
-</html>
+  </style>
