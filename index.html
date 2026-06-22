@@ -16,8 +16,33 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#f8faf9;
+
+background:
+linear-gradient(
+135deg,
+#f7fff9 0%,
+#eefcf4 40%,
+#ffffff 100%
+);
+
 color:#111;
+overflow-x:hidden;
+
+}
+
+  body::before{
+
+content:"";
+position:fixed;
+top:-200px;
+right:-200px;
+width:500px;
+height:500px;
+background:#00a86b22;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+
 }
 
 
