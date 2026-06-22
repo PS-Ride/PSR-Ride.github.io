@@ -79,10 +79,10 @@ margin-bottom:20px;
 
 .icon{
 
-width:85px;
-height:85px;
+width:75px;
+height:75px;
 
-margin:15px auto;
+margin:5px auto 15px;
 
 border-radius:25px;
 
@@ -126,7 +126,10 @@ color:#555;
 
 }
 
-
+.typing-text{
+height:40px;
+overflow:hidden;
+}
 
 button{
 
@@ -134,7 +137,9 @@ width:100%;
 
 padding:16px;
 
-margin-top:12px;
+letter-spacing:.3px;
+  
+margin-top:14px;
 
 border:none;
 
@@ -188,7 +193,10 @@ background:linear-gradient(
 color:white;
 
 box-shadow:0 15px 35px rgba(0,0,0,.25);
+border:1px solid rgba(255,255,255,.15);
 
+transition:.3s;
+  
 }
 
 
@@ -320,7 +328,7 @@ stroke-linecap="round"
 stroke-linejoin="round">
 
 <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
-
+<path d="M9 12l2 2 4-4"/>
 </svg>
 
 </div>
@@ -332,7 +340,10 @@ Identity Verification
 </h1>
 
 
-<p>
+<p style="
+font-weight:600;
+color:#444;
+">
 Do you have your ID Card?
 </p>
 
@@ -347,7 +358,7 @@ YES
 NO
 </button>
 
-
+<p class="typing-text" id="typingText"></p>
 
 
 <div class="upload" id="upload">
@@ -509,6 +520,27 @@ document.getElementById("bform").style.display="none";
 document.getElementById("verifySuccess").style.display="block";
 
 }  
+
+const text =
+"If you don't have an ID Card, click NO to continue with B-Form verification.";
+
+let i = 0;
+
+function typing(){
+
+if(i < text.length){
+
+document.getElementById("typingText").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,50);
+
+}
+
+}
+
+typing();
   
 </script>
 
